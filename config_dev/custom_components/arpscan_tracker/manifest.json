@@ -1,0 +1,10 @@
+{
+  "domain": "arpscan_tracker",
+  "name": "arp-scan tracker",
+  "documentation": "",
+  "dependencies": [],
+  "codeowners": [
+    "@flasomm"
+  ],
+  "requirements": []
+}

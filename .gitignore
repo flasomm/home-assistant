@@ -1,3 +1,18 @@
+config_dev/secrets.yaml
+config_dev/home-assistant.log
+config_dev/home-assistant_v2.db
+config_dev/.HA_VERSION
+config_dev/.cloud
+config_dev/.storage
+config_dev/deps
+config_dev/zwcfg_*.xml
+config_dev/known_devices.yaml
+homeassistant.egg-info
+
+.tox
+start-dev.sh
+venv
+venv/*
 config/*
 config2/*
 

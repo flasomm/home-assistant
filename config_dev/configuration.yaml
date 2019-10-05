@@ -1,0 +1,69 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Maison
+  # Location required to calculate the time the sun rises and sets
+  latitude: 48.8167
+  longitude: 2.3667
+  elevation: 62
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  time_zone: Europe/Paris
+  # Customization file
+  customize: !include customize.yaml
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+config:
+
+frontend:
+  themes: !include themes.yaml
+
+system_health:
+history:
+logbook:
+
+logger:
+  default: info
+  logs:
+    homeassistant.core: debug
+    nest.nest: debug
+    asyncio: debug
+    homeassistant.components.cloud.iot: debug
+
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+# http:
+#   base_url: example.duckdns.org:8123
+
+# Enables a map showing the location of tracked devices
+map:
+# Track the sun
+sun:
+
+# Discover some devices automatically
+discovery:
+
+lovelace:
+  mode: yaml
+
+panel_custom:
+  - name: zwavegraph2
+    sidebar_title: ZWave Graph
+    sidebar_icon: mdi:access-point-network
+    url_path: zwave
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+
+device_tracker:
+  - platform: arpscan_tracker
+    mac: 58:e2:8f:20:b0:45
+    ip: 192.168.1.75
+    device_name: marcel
+    scan_options: --interface=en0 -l -g --retry=10 -b 2
+    interval_seconds: 15
+    consider_home: 60
+    track_new_devices: true
