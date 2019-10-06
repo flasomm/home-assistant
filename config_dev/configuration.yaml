@@ -2,8 +2,8 @@ homeassistant:
   # Name of the location where Home Assistant is running
   name: Maison
   # Location required to calculate the time the sun rises and sets
-  latitude: 48.8167
-  longitude: 2.3667
+  latitude: 48.812534
+  longitude: 2.359192
   elevation: 62
   # metric for Metric, imperial for Imperial
   unit_system: metric
@@ -58,12 +58,12 @@ group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
 
-device_tracker:
-  - platform: arpscan_tracker
-    mac: 58:e2:8f:20:b0:45
-    ip: 192.168.1.75
-    device_name: marcel
-    scan_options: --interface=en0 -l -g --retry=10 -b 2
-    interval_seconds: 15
-    consider_home: 60
-    track_new_devices: true
+#device_tracker:
+#  - platform: arpscan_tracker
+#    mac: 58:e2:8f:20:b0:45
+#    ip: 192.168.1.75
+#    device_name: marcel
+#    scan_options: --interface=en0 -l -g --retry=10 -b 2
+#    interval_seconds: 15
+#    consider_home: 60
+#    track_new_devices: true
