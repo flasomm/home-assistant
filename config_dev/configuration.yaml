@@ -17,27 +17,12 @@ config:
 frontend:
   themes: !include themes.yaml
 
+# Enables a map showing the location of tracked devices
+map:
+sun:
 system_health:
 history:
 logbook:
-
-logger:
-  default: info
-  logs:
-    homeassistant.core: debug
-    nest.nest: debug
-    asyncio: debug
-    homeassistant.components.cloud.iot: debug
-
-# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-# http:
-#   base_url: example.duckdns.org:8123
-
-# Enables a map showing the location of tracked devices
-map:
-# Track the sun
-sun:
-
 # Discover some devices automatically
 discovery:
 
@@ -54,6 +39,41 @@ panel_custom:
 tts:
   - platform: google_translate
 
+logger:
+  default: info
+  logs:
+    homeassistant.core: debug
+    nest.nest: debug
+    asyncio: debug
+    homeassistant.components.cloud.iot: debug
+
+input_boolean:
+  vacation_mode:
+    name: Holiday mode, things are locked or shutdown
+    initial: off
+    icon: mdi:airplane
+  night_mode:
+    name: Night mode, the lights do not turn on anymore
+    initial: off
+    icon: mdi:hotel
+
+notify:
+  - platform: smtp
+    name: email_notifier
+    sender: flasomm@gmail.com
+    recipient: flasomm@gmail.com
+    sender_name: Home Assistant
+    username: flasomm
+    password: 4Snn!fA4-L%TU<uC
+    port: 25
+    debug: true
+
+  - platform: slack
+    name: slack_notifier
+    api_key: !secret slack_api_key
+    default_channel: '#domotique'
+
+
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
@@ -67,30 +87,3 @@ script: !include scripts.yaml
 #    interval_seconds: 15
 #    consider_home: 60
 #    track_new_devices: true
-
-
-notify:
-  - name: slack
-    platform: slack
-    api_key: !secret slack_api_key
-    default_channel: '#domotique'
-
-  - name: email
-    platform: smtp
-    sender: flasomm@gmail.com
-    recipient: flasomm@gmail.com
-    sender_name: My Home Assistant
-    port: 25
-
-alert:
-  garage_door:
-    name: Garage is open
-    done_message: Garage is closed
-    entity_id: input_boolean.garage_door
-    state: 'on'
-    repeat: 30
-    can_acknowledge: true
-    skip_first: true
-    notifiers:
-      - ryans_phone
-      - kristens_phone
