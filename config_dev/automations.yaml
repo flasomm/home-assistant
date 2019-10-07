@@ -1,1 +1,135 @@
-[]
+- id: '1570376416326'
+  alias: '[Presence] Allumer SDB'
+  trigger:
+    - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_5
+      platform: state
+      from: 'off'
+      to: 'on'
+  condition:
+    - condition: template
+      value_template: "{{ is_state('sun.sun', 'below_horizon') or sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_5 <= 10 }}"
+  action:
+    - device_id: 0e8162190b144387b9c444585d2bde2d
+      domain: light
+      entity_id: light.fibaro_system_fgd212_dimmer_2_level_2
+      type: turn_on
+- id: '1570377371243'
+  alias: '[Presence] Eteindre SDB'
+  trigger:
+    - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_5
+      platform: state
+      from: 'on'
+      to: 'off'
+  condition: []
+  action:
+    - device_id: 0e8162190b144387b9c444585d2bde2d
+      domain: light
+      entity_id: light.fibaro_system_fgd212_dimmer_2_level_2
+      type: turn_off
+- id: '1570377491303'
+  alias: '[Presence] Allumer WC'
+  trigger:
+    - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_6
+      platform: state
+      from: 'off'
+      to: 'on'
+  condition:
+    - condition: template
+      value_template: "{{ is_state('sun.sun', 'below_horizon') or sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_6 <= 10 }}"
+  action:
+    - device_id: 28143c590fb74335bdf41fbad0cda011
+      domain: light
+      entity_id: light.fibaro_system_fgd212_dimmer_2_level_6
+      type: turn_on
+- id: '1570377636439'
+  alias: '[Presence] Eteindre WC'
+  trigger:
+    - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_6
+      platform: state
+      from: 'on'
+      to: 'off'
+  condition: []
+  action:
+    - device_id: 28143c590fb74335bdf41fbad0cda011
+      domain: light
+      entity_id: light.fibaro_system_fgd212_dimmer_2_level_6
+      type: turn_off
+- id: '1570378842927'
+  alias: '[Presence] Allumer Mezzanine'
+  trigger:
+    - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_4
+      platform: state
+      from: 'off'
+      to: 'on'
+  condition:
+    - condition: template
+      value_template: "{{ is_state('sun.sun', 'below_horizon') or sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_4 <= 10 }}"
+  action:
+    - device_id: 58fb1cb61846485e95b002addc372574
+      domain: light
+      entity_id: light.fibaro_system_fgd212_dimmer_2_level_4
+      type: turn_on
+- id: '1570379947387'
+  alias: '[Presence] Allumer Cuisine Plan de Travail'
+  trigger:
+    - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_3
+      platform: state
+      from: 'off'
+      to: 'on'
+    - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_2
+      platform: state
+      from: 'off'
+      to: 'on'
+    - entity_id: binary_sensor.philio_technology_corp_pst02_c_door_window_3_in_1_sensor_sensor
+      platform: state
+      from: 'off'
+      to: 'on'
+  condition:
+    - condition: template
+      value_template: "{{ is_state('sun.sun', 'below_horizon') or sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_3 <= 10 }}"
+  action:
+    - device_id: bc96313e5fae497ab6e9b1cda2d3c898
+      domain: light
+      entity_id: switch.fibaro_system_fgs213_switch_switch_2
+      type: turn_on
+- id: '1570381259379'
+  alias: '[Presence] Eteindre Cuisine Plan de Travail'
+  trigger:
+    - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_3
+      platform: state
+      from: 'on'
+      to: 'off'
+  condition: []
+  action:
+    - device_id: 3e22928a56144c52bc9b3ea209763b92
+      domain: switch
+      entity_id: switch.fibaro_system_fgs213_switch_switch_2
+      type: turn_off
+- id: '1570382367987'
+  alias: '[Alarm] Détecteur de Fumée'
+  trigger:
+    - entity_id: sensor.fibaro_system_fgsd002_smoke_sensor_smoke
+      platform: state
+      from: 'off'
+      to: 'on'
+  condition: []
+  action:
+    service: notify.slack
+    data:
+      title: '[Alarm] Detecteur de Fumée'
+      message: 'Fumée détecté à la maison'
+- id: '1570383094670'
+  alias: Test notif
+  trigger:
+    - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor
+      platform: state
+      from: 'off'
+      to: 'on'
+  condition:
+    - condition: template
+      value_template: "{{ is_state('sun.sun', 'below_horizon') or sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance <= 14 }}"
+  action:
+    service: notify.email
+    data:
+      title: '[Alarm] Test from home'
+      message: 'Test from home'

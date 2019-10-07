@@ -67,3 +67,30 @@ script: !include scripts.yaml
 #    interval_seconds: 15
 #    consider_home: 60
 #    track_new_devices: true
+
+
+notify:
+  - name: slack
+    platform: slack
+    api_key: !secret slack_api_key
+    default_channel: '#domotique'
+
+  - name: email
+    platform: smtp
+    sender: flasomm@gmail.com
+    recipient: flasomm@gmail.com
+    sender_name: My Home Assistant
+    port: 25
+
+alert:
+  garage_door:
+    name: Garage is open
+    done_message: Garage is closed
+    entity_id: input_boolean.garage_door
+    state: 'on'
+    repeat: 30
+    can_acknowledge: true
+    skip_first: true
+    notifiers:
+      - ryans_phone
+      - kristens_phone

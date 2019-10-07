@@ -4,56 +4,66 @@ views:
   - title: Dashboard
     icon: mdi:home
     id: dashboard
+    path: dashboard
     cards:
       - type: entities
         title: Bureau
         entities:
+          - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature
           - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance
           - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor
-          - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature
+      - type: entities
+        title: Chambre
+        entities:
+          - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_7
+          - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_7
+          - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_7
       - type: entities
         title: Salle De Bain
         entities:
+          - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_5
           - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_5
           - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_5
-          - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_5
           - entity: light.fibaro_system_fgd212_dimmer_2_level_2
       - type: entities
         title: WC
         entities:
+          - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_6
           - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_6
           - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_6
-          - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_6
           - entity: light.fibaro_system_fgd212_dimmer_2_level_6
       - type: entities
         title: Mezzanine
         entities:
+          - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_4
           - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_4
           - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_4
-          - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_4
           - entity: light.fibaro_system_fgd212_dimmer_2_level_4
       - type: entities
         title: Salon
         entities:
+          - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_3
           - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_3
           - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_3
-          - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_3
           - entity: light.fibaro_system_fgd212_dimmer_2_level_8
       - type: entities
         title: Entrée
         entities:
           - entity: light.fibaro_system_fgd212_dimmer_2_level_12
+          - entity: binary_sensor.philio_technology_corp_pst02_c_door_window_3_in_1_sensor_sensor
       - type: entities
         title: Cuisine
         entities:
+          - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_2
           - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_2
           - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_2
-          - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_2
           - entity: light.fibaro_system_fgd212_dimmer_2_level_10
           - entity: switch.fibaro_system_fgs213_switch_switch_2
-      - type: entities
-        title: Chambre
-        entities:
-          - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance
-          - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor
-          - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature
+  - title: Media
+    icon: mdi:video
+    id: medias
+    path: medias
+  - title: Sécurité
+    icon: mdi:security
+    id: securite
+    path: security
