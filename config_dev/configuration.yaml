@@ -58,18 +58,21 @@ input_boolean:
     icon: mdi:hotel
 
 notify:
-  - platform: smtp
-    name: email_notifier
+  - name: email_notifier
+    platform: smtp
+    server: smtp.gmail.com
+    port: 587
+    timeout: 15
     sender: flasomm@gmail.com
-    recipient: flasomm@gmail.com
-    sender_name: Home Assistant
-    username: flasomm
-    password: 4Snn!fA4-L%TU<uC
-    port: 25
+    encryption: starttls
+    username: !secret google_account
+    password: !secret google_password
+    sender_name: My Home Assistant
     debug: true
-
-  - platform: slack
-    name: slack_notifier
+    recipient:
+      - flasomm@gmail.com
+  - name: slack_notifier
+    platform: slack
     api_key: !secret slack_api_key
     default_channel: '#domotique'
 
