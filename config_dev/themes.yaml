@@ -104,6 +104,7 @@ midnight:
   paper-item-icon_-_color: 'green'
   paper-item-selected_-_background-color: '#434954'                               # Popup item select
   paper-tabs-selection-bar-color: 'green'
+  card-background-color: "var(--paper-card-background-color)"
 
   # Labels
   label-badge-red: 'var(--accent-color)'                                          # References the brand colour label badge border

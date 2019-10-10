@@ -8,7 +8,7 @@ config_dev/deps
 config_dev/zwcfg_*.xml
 config_dev/known_devices.yaml
 homeassistant.egg-info
-
+.uuid
 .tox
 start-dev.sh
 venv

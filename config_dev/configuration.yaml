@@ -17,15 +17,6 @@ config:
 frontend:
   themes: !include themes.yaml
 
-# Enables a map showing the location of tracked devices
-map:
-sun:
-system_health:
-history:
-logbook:
-# Discover some devices automatically
-discovery:
-
 lovelace:
   mode: yaml
 
@@ -34,6 +25,22 @@ panel_custom:
     sidebar_title: ZWave Graph
     sidebar_icon: mdi:access-point-network
     url_path: zwave
+
+# Enables a map showing the location of tracked devices
+map:
+sun:
+system_health:
+history:
+logbook:
+# Discover some devices automatically
+discovery:
+updater:
+zeroconf:
+
+person:
+
+mobile_app:
+ios:
 
 # Text to speech
 tts:
@@ -81,12 +88,12 @@ group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
 
-#device_tracker:
-#  - platform: arpscan_tracker
-#    mac: 58:e2:8f:20:b0:45
-#    ip: 192.168.1.75
-#    device_name: marcel
-#    scan_options: --interface=en0 -l -g --retry=10 -b 2
-#    interval_seconds: 15
-#    consider_home: 60
-#    track_new_devices: true
+device_tracker:
+  - platform: arpscan_tracker
+    mac: 58:e2:8f:20:b0:45
+    ip: 192.168.1.75
+    device_name: marcel
+    scan_options: --interface=eth0 -l -g --retry=2 -b 2
+    interval_seconds: 60
+    consider_home: 60
+    track_new_devices: true

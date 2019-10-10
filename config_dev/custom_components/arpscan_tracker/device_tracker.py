@@ -54,6 +54,7 @@ class ArpScanDeviceScanner(DeviceScanner):
         self.mac = config[CONF_MAC]
         self.device_name = config[CONF_DEVICE_NAME]
         self.__options = config[CONF_OPTIONS]
+        self.hosts_scanned = []
 
         _LOGGER.info("Scanner initialized")
 
@@ -76,21 +77,22 @@ class ArpScanDeviceScanner(DeviceScanner):
 
     def __update_info(self):
         _LOGGER.debug("Scanning...")
-        now = dt_util.now()
+
         last_results = []
+        now = dt_util.now()
         try:
-            scandata = subprocess.getoutput(
+            result = subprocess.getoutput(
                 "sudo arp-scan %s -T %s | grep %s" % (self.__options, self.mac, self.ip)
-            )
-            if scandata is None:
+            ).strip()
+            if len(result) == 0:
                 _LOGGER.info(
                     "No MAC address found for %s=%s", self.device_name, self.mac
                 )
+                self.last_results = []
                 return False
 
-            data = re.split("\\s+", scandata)
-            print(data)
-            last_results.append(Device(data[1], self.device_name, data[0], now))
+            data = re.split("\\s+", result)
+            last_results.append(Device(data[1].upper(), self.device_name, data[0], now))
         except subprocess.SubprocessError as err:
             print(err)
             _LOGGER.error("arp-scan subprocess error %s", err)
