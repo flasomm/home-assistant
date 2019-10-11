@@ -10,12 +10,14 @@ homeassistant:
   time_zone: Europe/Paris
   # Customization file
   customize: !include customize.yaml
+  customize_glob: !include customglob.yaml
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
 config:
 
 frontend:
   themes: !include themes.yaml
+  javascript_version: latest
 
 lovelace:
   mode: yaml
@@ -36,7 +38,6 @@ logbook:
 discovery:
 updater:
 zeroconf:
-
 person:
 
 mobile_app:
@@ -83,17 +84,21 @@ notify:
     api_key: !secret slack_api_key
     default_channel: '#domotique'
 
-
-group: !include groups.yaml
-automation: !include automations.yaml
-script: !include scripts.yaml
-
 device_tracker:
   - platform: arpscan_tracker
     mac: 58:e2:8f:20:b0:45
     ip: 192.168.1.75
     device_name: marcel
-    scan_options: --interface=eth0 -l -g --retry=2 -b 2
+    scan_options: --interface=en0 -l -g --retry=2 -b 2
     interval_seconds: 60
     consider_home: 60
     track_new_devices: true
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+
+
+zwave:
+  usb_path: /dev/ttyAMA0
+  network_key: "0x80, 0x0D, 0xB7, 0x29, 0x79, 0x5A, 0x1E, 0xFB, 0x9E, 0xFF, 0x8F, 0x03, 0xE0, 0x82, 0x5B, 0x89"

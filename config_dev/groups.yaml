@@ -1,0 +1,30 @@
+cuisine:
+  name: Cuisine
+  entities:
+    - light.fibaro_system_fgd212_dimmer_2_level_10
+    - switch.fibaro_system_fgs213_switch_switch_2
+salon:
+  name: Salon
+  entities:
+    - light.fibaro_system_fgd212_dimmer_2_level_8
+entree:
+  name: Entrée
+  entities:
+    - light.fibaro_system_fgd212_dimmer_2_level_12
+mezzanine:
+  name: Mezzanine
+  entities:
+    - light.fibaro_system_fgd212_dimmer_2_level_4
+sdb:
+  name: Salle de Bain
+  entities:
+    - light.fibaro_system_fgd212_dimmer_2_level_2
+wc:
+  name: WC
+  entities:
+    - light.fibaro_system_fgd212_dimmer_2_level_6
+all_person:
+  name: Toutes les personnes
+  entities:
+    - person.fabrice_sommavilla
+

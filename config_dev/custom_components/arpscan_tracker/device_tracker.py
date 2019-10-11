@@ -82,7 +82,7 @@ class ArpScanDeviceScanner(DeviceScanner):
         now = dt_util.now()
         try:
             result = subprocess.getoutput(
-                "sudo arp-scan %s -T %s | grep %s" % (self.__options, self.mac, self.ip)
+                "arp-scan %s -T %s | grep %s" % (self.__options, self.mac, self.ip)
             ).strip()
             if len(result) == 0:
                 _LOGGER.info(

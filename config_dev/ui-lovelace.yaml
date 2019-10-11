@@ -16,121 +16,149 @@ views:
         cards:
           - type: glance
             entities:
-              - entity: device_tracker.marcel
+              - entity: person.fabrice_sommavilla
                 name: Fabrice
-          - type: conditional
-            conditions:
-              - entity: input_boolean.night_mode
-                state: "on"
-            card:
-              type: entity-button
-              entity: input_boolean.night_mode
-              name: Mode Nuit (on)
-              icon: mdi:hotel
-              icon_height: 40px
-              hold_action: call-service
-              service: input_boolean.turn_off
-              service_data:
-                entity_id: input_boolean.night_mode
-          - type: conditional
-            conditions:
-              - entity: input_boolean.night_mode
-                state: "off"
-            card:
-              type: entity-button
-              entity: input_boolean.night_mode
-              name: Mode Nuit (off)
-              icon: mdi:hotel
-              icon_height: 40px
-              hold_action: call-service
-              service: input_boolean.turn_on
-              service_data:
-                entity_id: input_boolean.night_mode
-          - type: conditional
-            conditions:
-              - entity: input_boolean.vacation_mode
-                state: "on"
-            card:
-              type: entity-button
-              entity: input_boolean.vacation_mode
-              name: Mode Vacances (on)
-              icon: mdi:airplane
-              icon_height: 40px
-              hold_action: call-service
-              service: input_boolean.turn_off
-              service_data:
-                entity_id: input_boolean.vacation_mode
-          - type: conditional
-            conditions:
-              - entity: input_boolean.vacation_mode
-                state: "off"
-            card:
-              type: entity-button
-              entity: input_boolean.vacation_mode
-              name: Mode Vacances (off)
-              icon: mdi:airplane
-              icon_height: 40px
-              hold_action: call-service
-              service: input_boolean.turn_on
-              service_data:
-                entity_id: input_boolean.vacation_mode
+          - type: weather-forecast
+            entity: weather.maison
           - type: entities
-            title: Cuisine
+            title: Eclairage
             entities:
-              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_2
-              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_2
-              - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_2
+              - entity: light.fibaro_system_fgd212_dimmer_2_level_2
+              - entity: light.fibaro_system_fgd212_dimmer_2_level_4
+              - entity: light.fibaro_system_fgd212_dimmer_2_level_6
+              - entity: light.fibaro_system_fgd212_dimmer_2_level_8
               - entity: light.fibaro_system_fgd212_dimmer_2_level_10
               - entity: switch.fibaro_system_fgs213_switch_switch_2
-          - type: entities
-            title: Salon
-            entities:
-              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_3
-              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_3
-              - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_3
-              - entity: light.fibaro_system_fgd212_dimmer_2_level_8
-      - type: vertical-stack
-        cards:
-          - type: entities
-            title: Salle De Bain
-            entities:
-              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_5
-              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_5
-              - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_5
-              - entity: light.fibaro_system_fgd212_dimmer_2_level_2
-          - type: entities
-            title: WC
-            entities:
-              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_6
-              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_6
-              - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_6
-              - entity: light.fibaro_system_fgd212_dimmer_2_level_6
-          - type: entities
-            title: Bureau
-            entities:
-              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature
-              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance
-              - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor
-      - type: vertical-stack
-        cards:
-          - type: entities
-            title: Mezzanine
-            entities:
-              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_4
-              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_4
-              - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_4
-              - entity: light.fibaro_system_fgd212_dimmer_2_level_4
-          - type: entities
-            title: Entrée
-            entities:
               - entity: light.fibaro_system_fgd212_dimmer_2_level_12
-              - entity: binary_sensor.philio_technology_corp_pst02_c_door_window_3_in_1_sensor_sensor
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: conditional
+                conditions:
+                  - entity: input_boolean.night_mode
+                    state: "on"
+                card:
+                  type: entity-button
+                  entity: input_boolean.night_mode
+                  name: Mode Nuit (on)
+                  icon: mdi:hotel
+                  icon_height: 40px
+                  hold_action: call-service
+                  service: input_boolean.turn_off
+                  service_data:
+                    entity_id: input_boolean.night_mode
+              - type: conditional
+                conditions:
+                  - entity: input_boolean.night_mode
+                    state: "off"
+                card:
+                  type: entity-button
+                  entity: input_boolean.night_mode
+                  name: Mode Nuit (off)
+                  icon: mdi:hotel
+                  icon_height: 40px
+                  hold_action: call-service
+                  service: input_boolean.turn_on
+                  service_data:
+                    entity_id: input_boolean.night_mode
+              - type: conditional
+                conditions:
+                  - entity: input_boolean.vacation_mode
+                    state: "on"
+                card:
+                  type: entity-button
+                  entity: input_boolean.vacation_mode
+                  name: Mode Vacances (on)
+                  icon: mdi:airplane
+                  icon_height: 40px
+                  hold_action: call-service
+                  service: input_boolean.turn_off
+                  service_data:
+                    entity_id: input_boolean.vacation_mode
+              - type: conditional
+                conditions:
+                  - entity: input_boolean.vacation_mode
+                    state: "off"
+                card:
+                  type: entity-button
+                  entity: input_boolean.vacation_mode
+                  name: Mode Vacances (off)
+                  icon: mdi:airplane
+                  icon_height: 40px
+                  hold_action: call-service
+                  service: input_boolean.turn_on
+                  service_data:
+                    entity_id: input_boolean.vacation_mode
+          - type: horizontal-stack
+            cards:
+              - type: sensor
+                name: Temp. Bureau
+                entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature
+              - type: sensor
+                name: Temp. Cuisine
+                entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_2
+          - type: horizontal-stack
+            cards:
+              - type: sensor
+                name: Temp. Salon
+                entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_3
+              - type: sensor
+                name: Temp. Mezzanine
+                entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_4
+          - type: horizontal-stack
+            cards:
+              - type: sensor
+                name: Temp. SDB
+                entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_5
+              - type: sensor
+                name: Temp. WC
+                entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_6
+          - type: horizontal-stack
+            cards:
+              - type: sensor
+                name: Temp. Chambre
+                entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_7
+              - type: sensor
+                name: Temp. Détec. Fumée
+                entity: sensor.fibaro_system_fgsd002_smoke_sensor_temperature
+      - type: vertical-stack
+        cards:
           - type: entities
-            title: Chambre
+            title: Mouvements
+            show_header_toggle: false
             entities:
-              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_7
-              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_7
+              - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor
+              - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_2
+              - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_3
+              - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_4
+              - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_5
+              - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_6
               - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_7
+              - entity: binary_sensor.philio_technology_corp_pst02_c_door_window_3_in_1_sensor_sensor
+          - type: horizontal-stack
+            cards:
+              - type: sensor
+                entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance
+              - type: sensor
+                entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_2
+          - type: horizontal-stack
+            cards:
+              - type: sensor
+                entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_3
+              - type: sensor
+                entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_4
+          - type: horizontal-stack
+            cards:
+              - type: sensor
+                entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_5
+              - type: sensor
+                entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_6
+          - type: horizontal-stack
+            cards:
+              - type: sensor
+                entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_7
+
   - title: Media
     icon: mdi:video
     id: medias

@@ -6,3 +6,19 @@ marcel:
   name: marcel
   picture:
   track: true
+
+marcel_2:
+  hide_if_away: false
+  icon:
+  mac: NOT
+  name: marcel
+  picture:
+  track: true
+
+marcel_3:
+  hide_if_away: false
+  icon:
+  mac: COULD
+  name: marcel
+  picture:
+  track: true

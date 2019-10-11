@@ -1,0 +1,10 @@
+"sensor.*_general*":
+  disable: true
+"sensor.*_axis*":
+  hidden: true
+"sensor.*_system*":
+  hidden: true
+"sensor.*_exporting*":
+  hidden: true
+"sensor.*_sourcenodeid*":
+  hidden: true
