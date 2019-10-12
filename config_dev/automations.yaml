@@ -1,160 +1,392 @@
+# Lumiere SDB
 - id: '1570376416326'
   alias: '[Presence] Allumer SDB'
   trigger:
-  - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_5
-    platform: state
-    from: 'off'
-    to: 'on'
+    - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_5
+      platform: state
+      from: 'off'
+      to: 'on'
   condition:
-  - condition: template
-    value_template: '{{ is_state(''input_boolean.vacation_mode'', ''off'') and is_state(''input_boolean.night_mode'',
+    - condition: template
+      value_template: '{{ is_state(''input_boolean.vacation_mode'', ''off'') and is_state(''input_boolean.night_mode'',
       ''off'') and (is_state(''sun.sun'', ''below_horizon'') or sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_5
       <= 10) }}'
   action:
-  - device_id: 0e8162190b144387b9c444585d2bde2d
-    domain: light
-    entity_id: light.fibaro_system_fgd212_dimmer_2_level_2
-    type: turn_on
+    - device_id: 0e8162190b144387b9c444585d2bde2d
+      domain: light
+      entity_id: light.fibaro_system_fgd212_dimmer_2_level_2
+      type: turn_on
+
 - id: '1570377371243'
   alias: '[Presence] Eteindre SDB'
   trigger:
-  - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_5
-    platform: state
-    from: 'on'
-    to: 'off'
-    for: 0:10:00
+    - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_5
+      platform: state
+      from: 'on'
+      to: 'off'
+      for: 0:10:00
   condition:
-  - condition: template
-    value_template: '{{ is_state(''input_boolean.vacation_mode'', ''off'') and is_state(''input_boolean.night_mode'',
+    - condition: template
+      value_template: '{{ is_state(''input_boolean.vacation_mode'', ''off'') and is_state(''input_boolean.night_mode'',
       ''off'') }}'
   action:
-  - device_id: 0e8162190b144387b9c444585d2bde2d
-    domain: light
-    entity_id: light.fibaro_system_fgd212_dimmer_2_level_2
-    type: turn_off
+    - device_id: 0e8162190b144387b9c444585d2bde2d
+      domain: light
+      entity_id: light.fibaro_system_fgd212_dimmer_2_level_2
+      type: turn_off
+
+# Lumiere WC
 - id: '1570377491303'
   alias: '[Presence] Allumer WC'
   trigger:
-  - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_6
-    platform: state
-    from: 'off'
-    to: 'on'
+    - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_6
+      platform: state
+      from: 'off'
+      to: 'on'
   condition:
-  - condition: template
-    value_template: '{{ is_state(''input_boolean.vacation_mode'', ''off'') and is_state(''input_boolean.night_mode'',
+    - condition: template
+      value_template: '{{ is_state(''input_boolean.vacation_mode'', ''off'') and is_state(''input_boolean.night_mode'',
       ''off'') and (is_state(''sun.sun'', ''below_horizon'') or sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_6
       <= 10) }}'
   action:
-  - device_id: 28143c590fb74335bdf41fbad0cda011
-    domain: light
-    entity_id: light.fibaro_system_fgd212_dimmer_2_level_6
-    type: turn_on
+    - device_id: 28143c590fb74335bdf41fbad0cda011
+      domain: light
+      entity_id: light.fibaro_system_fgd212_dimmer_2_level_6
+      type: turn_on
+
 - id: '1570377636439'
   alias: '[Presence] Eteindre WC'
   trigger:
-  - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_6
-    platform: state
-    from: 'on'
-    to: 'off'
-    for: 0:10:00
+    - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_6
+      platform: state
+      from: 'on'
+      to: 'off'
+      for: 0:10:00
   condition:
-  - condition: template
-    value_template: '{{ is_state(''input_boolean.vacation_mode'', ''off'') and is_state(''input_boolean.night_mode'',
+    - condition: template
+      value_template: '{{ is_state(''input_boolean.vacation_mode'', ''off'') and is_state(''input_boolean.night_mode'',
       ''off'') }}'
   action:
-  - device_id: 28143c590fb74335bdf41fbad0cda011
-    domain: light
-    entity_id: light.fibaro_system_fgd212_dimmer_2_level_6
-    type: turn_off
+    - device_id: 28143c590fb74335bdf41fbad0cda011
+      domain: light
+      entity_id: light.fibaro_system_fgd212_dimmer_2_level_6
+      type: turn_off
+
+# Lumiere Mezzanine
 - id: '1570378842927'
   alias: '[Presence] Allumer Mezzanine'
   trigger:
-  - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_4
-    platform: state
-    from: 'off'
-    to: 'on'
+    - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_4
+      platform: state
+      from: 'off'
+      to: 'on'
   condition:
-  - condition: template
-    value_template: '{{ is_state(''input_boolean.vacation_mode'', ''off'') and is_state(''input_boolean.night_mode'',
+    - condition: template
+      value_template: '{{ is_state(''input_boolean.vacation_mode'', ''off'') and is_state(''input_boolean.night_mode'',
       ''off'') and (is_state(''sun.sun'', ''below_horizon'') or sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_4
       <= 10) }}'
   action:
-  - device_id: 58fb1cb61846485e95b002addc372574
-    domain: light
-    entity_id: light.fibaro_system_fgd212_dimmer_2_level_4
-    type: turn_on
-- id: '1570379947387'
-  alias: '[Presence] Allumer Cuisine Plan de Travail'
-  trigger:
-  - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_3
-    platform: state
-    from: 'off'
-    to: 'on'
-  - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_2
-    platform: state
-    from: 'off'
-    to: 'on'
-  - entity_id: binary_sensor.philio_technology_corp_pst02_c_door_window_3_in_1_sensor_sensor
-    platform: state
-    from: 'off'
-    to: 'on'
-  condition:
-  - condition: template
-    value_template: '{{ is_state(''input_boolean.vacation_mode'', ''off'') and is_state(''input_boolean.night_mode'',
-      ''off'') and (is_state(''sun.sun'', ''below_horizon'') or sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_3
-      <= 10) }}'
-  action:
-  - device_id: 3e22928a56144c52bc9b3ea209763b92
-    domain: switch
-    entity_id: switch.fibaro_system_fgs213_switch_switch_2
-    type: turn_on
-- id: '1570381259379'
-  alias: '[Presence] Eteindre Cuisine Plan de Travail'
-  trigger:
-  - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_3
-    platform: state
-    from: 'on'
-    to: 'off'
-    for: 0:10:00
-  condition:
-  - condition: template
-    value_template: '{{ is_state(''input_boolean.vacation_mode'', ''off'') and is_state(''input_boolean.night_mode'',
-      ''off'') }}'
-  action:
-  - device_id: 3e22928a56144c52bc9b3ea209763b92
-    domain: switch
-    entity_id: switch.fibaro_system_fgs213_switch_switch_2
-    type: turn_off
-- id: '1570382367987'
-  alias: '[Alarm] Détecteur de Fumée'
-  trigger:
-  - entity_id: sensor.fibaro_system_fgsd002_smoke_sensor_smoke
-    from: 'off'
-    platform: state
-    to: 'on'
-  condition: []
-  action:
-  - service: notify.slack_notifier
-    data:
-      message: Fumée détecté à la maison
-      title: '[Alarm] Détecteur de Fumée Activé'
-  - service: notify.email_notifier
-    data:
-      message: Fumée détecté à la maison
-      title: '[Alarm] Détecteur de Fumée Activé'
+    - device_id: 58fb1cb61846485e95b002addc372574
+      domain: light
+      entity_id: light.fibaro_system_fgd212_dimmer_2_level_4
+      type: turn_on
+
 - id: '1570429233439'
   alias: '[Presence] Eteindre Mezzanine'
   trigger:
-  - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_4
-    platform: state
-    from: 'on'
-    to: 'off'
+    - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_4
+      platform: state
+      from: 'on'
+      to: 'off'
   condition:
-  - condition: template
-    value_template: '{{ is_state(''input_boolean.vacation_mode'', ''off'') and is_state(''input_boolean.night_mode'',
+    - condition: template
+      value_template: '{{ is_state(''input_boolean.vacation_mode'', ''off'') and is_state(''input_boolean.night_mode'',
       ''off'') }}'
   action:
-  - device_id: 58fb1cb61846485e95b002addc372574
-    domain: light
-    entity_id: light.fibaro_system_fgd212_dimmer_2_level_4
-    type: turn_off
+    - device_id: 58fb1cb61846485e95b002addc372574
+      domain: light
+      entity_id: light.fibaro_system_fgd212_dimmer_2_level_4
+      type: turn_off
+
+# Lumieres Cuisine
+- id: '1570379947387'
+  alias: '[Presence] Allumer Cuisine Plan de Travail'
+  trigger:
+    - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_3
+      platform: state
+      from: 'off'
+      to: 'on'
+    - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_2
+      platform: state
+      from: 'off'
+      to: 'on'
+    - entity_id: binary_sensor.philio_technology_corp_pst02_c_door_window_3_in_1_sensor_sensor
+      platform: state
+      from: 'off'
+      to: 'on'
+  condition:
+    - condition: template
+      value_template: '{{ is_state(''input_boolean.vacation_mode'', ''off'') and is_state(''input_boolean.night_mode'',
+      ''off'') and (is_state(''sun.sun'', ''below_horizon'') or sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_3
+      <= 10) }}'
+  action:
+    - device_id: 3e22928a56144c52bc9b3ea209763b92
+      domain: switch
+      entity_id: switch.fibaro_system_fgs213_switch_switch_2
+      type: turn_on
+
+- id: '1570381259379'
+  alias: '[Presence] Eteindre Cuisine Plan de Travail'
+  trigger:
+    - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_3
+      platform: state
+      from: 'on'
+      to: 'off'
+      for: 0:10:00
+  condition:
+    - condition: template
+      value_template: '{{ is_state(''input_boolean.vacation_mode'', ''off'') and is_state(''input_boolean.night_mode'',
+      ''off'') }}'
+  action:
+    - device_id: 3e22928a56144c52bc9b3ea209763b92
+      domain: switch
+      entity_id: switch.fibaro_system_fgs213_switch_switch_2
+      type: turn_off
+
+# Détecteur de fumée
+- id: '1570382367987'
+  alias: '[Alarm] Détecteur de Fumée'
+  trigger:
+    - entity_id: sensor.fibaro_system_fgsd002_smoke_sensor_smoke
+      from: 'off'
+      platform: state
+      to: 'on'
+  condition: []
+  action:
+    - service: notify.slack_notifier
+      data:
+        message: Fumée détecté à la maison
+        title: '[Alarm] Détecteur de Fumée Activé'
+    - service: notify.email_notifier
+      data:
+        message: Fumée détecté à la maison
+        title: '[Alarm] Détecteur de Fumée Activé'
+
+# Radiateur Bureau
+- id: '322e1962112842dab4defab990286212'
+  alias: '[Radiateur] Bureau Comfort'
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: input_select.radiateur_bureau
+    to: 'Comfort'
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level
+      brightness: 100
+- id: 'bb19039062934ca5ba4f26ead890b4ee'
+  alias: '[Radiateur] Bureau Comfort -1'
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: input_select.radiateur_bureau
+    to: 'Comfort -1'
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level
+      brightness: 45
+- id: 'ee3069bd1f16476ea33ff4b1a875575a'
+  alias: '[Radiateur] Bureau Comfort -2'
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: input_select.radiateur_bureau
+    to: 'Comfort -2'
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level
+      brightness: 35
+- id: '8397b8f4cccd4dca90996ba38e760ba4'
+  alias: '[Radiateur] Bureau Eco'
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: input_select.radiateur_bureau
+    to: 'Eco'
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level
+      brightness: 25
+- id: '04d972cb89ba4fce96b669c95e4e4e48'
+  alias: '[Radiateur] Bureau Hors-gel'
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: input_select.radiateur_bureau
+    to: 'Hors-gel'
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level
+      brightness: 15
+- id: '9d3e9fcf237449eaac1bd771e1509b0b'
+  alias: '[Radiateur] Bureau Arret'
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: input_select.radiateur_bureau
+    to: 'Arret'
+  action:
+    service: light.turn_off
+    data:
+      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level
+
+# Radiateur Chambre
+- id: '9341537d031e4720a22aaa216cff45b5'
+  alias: '[Radiateur] Chambre Comfort'
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: input_select.radiateur_chambre
+    to: 'Comfort'
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_3
+      brightness: 100
+- id: '9d4fa5f997394de4a88b58cf24d9fc92'
+  alias: '[Radiateur] Chambre Comfort -1'
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: input_select.radiateur_chambre
+    to: 'Comfort -1'
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_3
+      brightness: 45
+- id: 'f5b0887ced604b0e9154a1fc215f49c9'
+  alias: '[Radiateur] Chambre Comfort -2'
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: input_select.radiateur_chambre
+    to: 'Comfort -2'
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_3
+      brightness: 35
+- id: '1b413163846949a8bb0ad98f6a76b7c1'
+  alias: '[Radiateur] Chambre Eco'
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: input_select.radiateur_chambre
+    to: 'Eco'
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_3
+      brightness: 25
+- id: 'cc8befca217a406fae30542e909c26f2'
+  alias: '[Radiateur] Chambre Hors-gel'
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: input_select.radiateur_chambre
+    to: 'Hors-gel'
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_3
+      brightness: 15
+- id: 'd85429683161423fb405060cd7d4c5be'
+  alias: '[Radiateur] Chambre Arret'
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: input_select.radiateur_chambre
+    to: 'Arret'
+  action:
+    service: light.turn_off
+    data:
+      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_3
+
+# Radiateur SDB
+- id: '8ea0bc937c3e400caa5ed6f5fcde255a'
+  alias: '[Radiateur] SDB Comfort'
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: input_select.radiateur_sdb
+    to: 'Comfort'
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_2
+      brightness: 100
+- id: '2afb10ab507442bebd5fffcc01ec6efc'
+  alias: '[Radiateur] SDB Comfort -1'
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: input_select.radiateur_sdb
+    to: 'Comfort -1'
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_2
+      brightness: 45
+- id: '9890c8529a424a6190ee8ff8bb75003e'
+  alias: '[Radiateur] SDB Comfort -2'
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: input_select.radiateur_sdb
+    to: 'Comfort -2'
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_2
+      brightness: 35
+- id: '3c2e9f968e874a3a84eb75171b3a9bf7'
+  alias: '[Radiateur] SDB Eco'
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: input_select.radiateur_sdb
+    to: 'Eco'
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_2
+      brightness: 25
+- id: '8b8dabda6fa94e75b89d6bb0d81a2cba'
+  alias: '[Radiateur] SDB Hors-gel'
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: input_select.radiateur_sdb
+    to: 'Hors-gel'
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_2
+      brightness: 15
+- id: '331695928c4e431eb74d305aae7a7bf2'
+  alias: '[Radiateur] SDB Arret'
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: input_select.radiateur_sdb
+    to: 'Arret'
+  action:
+    service: light.turn_off
+    data:
+      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_2

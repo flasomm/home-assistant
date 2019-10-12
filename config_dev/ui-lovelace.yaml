@@ -158,7 +158,31 @@ views:
             cards:
               - type: sensor
                 entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_7
-
+  - title: Thermostats
+    icon: mdi:radiator
+    id: thermostats
+    path: thermostats
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: entities
+            title: Radiateur SDB
+            show_header_toggle: false
+            entities:
+              - entity: input_select.radiateur_sdb
+                name: Modes
+          - type: entities
+            title: Radiateur Bureau
+            show_header_toggle: false
+            entities:
+              - entity: input_select.radiateur_bureau
+                name: Modes
+          - type: entities
+            title: Radiateur Chambre
+            show_header_toggle: false
+            entities:
+              - entity: input_select.radiateur_chambre
+                name: Modes
   - title: Media
     icon: mdi:video
     id: medias

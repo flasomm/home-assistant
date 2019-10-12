@@ -65,6 +65,38 @@ input_boolean:
     initial: off
     icon: mdi:hotel
 
+input_select:
+  radiateur_bureau:
+    name: Mode Radiateur
+    options:
+     - Arret
+     - Hors-gel
+     - Eco
+     - Comfort -2
+     - Comfort -1
+     - Comfort
+    initial: Comfort
+  radiateur_chambre:
+    name: Mode Radiateur
+    options:
+     - Arret
+     - Hors-gel
+     - Eco
+     - Comfort -2
+     - Comfort -1
+     - Comfort
+    initial: Comfort
+  radiateur_sdb:
+    name: Mode Radiateur
+    options:
+     - Arret
+     - Hors-gel
+     - Eco
+     - Comfort -2
+     - Comfort -1
+     - Comfort
+    initial: Comfort
+
 notify:
   - name: email_notifier
     platform: smtp
