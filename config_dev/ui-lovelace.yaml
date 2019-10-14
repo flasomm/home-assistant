@@ -1,9 +1,16 @@
 title: Dashboard
 
 resources:
-  # Add to the version number at the end of URL when updating.
-  - url: /local/custom-lovelace/compact-custom-header/compact-custom-header.js?v=0.0.1
+  - url: /local/custom-lovelace/compact-custom-header/compact-custom-header.js?v=0.99.3
     type: module
+  - url: /local/custom-lovelace/card-tools/card-tools.js?v=0.99.3
+    type: js
+  - url: /local/custom-lovelace/vertical-stack-in-card/vertical-stack-in-card.js?v=0.99.3
+    type: js
+  - url: /local/custom-lovelace/auto-entities/auto-entities.js?v=0.99.3
+    type: js
+  - url: /local/custom-lovelace/bar-card/bar-card.js?v=0.99.3
+    type: js
 
 views:
   # View tab title.
@@ -18,6 +25,16 @@ views:
             entities:
               - entity: person.fabrice_sommavilla
                 name: Fabrice
+          - type: horizontal-stack
+            cards:
+              - type: gauge
+                entity: sensor.disk_use_percent_home
+              - type: gauge
+                entity: sensor.memory_free
+              - type: gauge
+                entity: sensor.processor_use
+              - type: gauge
+                entity: sensor.swap_use_percent
           - type: weather-forecast
             entity: weather.maison
           - type: entities
@@ -94,95 +111,178 @@ views:
             cards:
               - type: sensor
                 name: Temp. Bureau
+                graph: line
                 entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature
               - type: sensor
                 name: Temp. Cuisine
+                graph: line
                 entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_2
           - type: horizontal-stack
             cards:
               - type: sensor
                 name: Temp. Salon
+                graph: line
                 entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_3
               - type: sensor
                 name: Temp. Mezzanine
+                graph: line
                 entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_4
           - type: horizontal-stack
             cards:
               - type: sensor
                 name: Temp. SDB
+                graph: line
                 entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_5
               - type: sensor
                 name: Temp. WC
+                graph: line
                 entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_6
           - type: horizontal-stack
             cards:
               - type: sensor
                 name: Temp. Chambre
+                graph: line
                 entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_7
               - type: sensor
-                name: Temp. Détec. Fumée
-                entity: sensor.fibaro_system_fgsd002_smoke_sensor_temperature
+                name: Temp. Entrée
+                graph: line
+                entity: sensor.philio_technology_corp_pst02_c_door_window_3_in_1_sensor_temperature
+          - type: horizontal-stack
+            cards:
+              - type: entities
+                title: Radiateur SDB
+                show_header_toggle: false
+                entities:
+                  - entity: input_select.radiateur_sdb
+                    name: Modes
+              - type: entities
+                title: Radiateur Bureau
+                show_header_toggle: false
+                entities:
+                  - entity: input_select.radiateur_bureau
+                    name: Modes
+          - type: horizontal-stack
+            cards:
+              - type: entities
+                title: Radiateur Chambre
+                show_header_toggle: false
+                entities:
+                  - entity: input_select.radiateur_chambre
+                    name: Modes
+
       - type: vertical-stack
         cards:
-          - type: entities
-            title: Mouvements
-            show_header_toggle: false
-            entities:
-              - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor
-              - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_2
-              - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_3
-              - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_4
-              - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_5
-              - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_6
-              - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_7
-              - entity: binary_sensor.philio_technology_corp_pst02_c_door_window_3_in_1_sensor_sensor
           - type: horizontal-stack
             cards:
-              - type: sensor
-                entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance
-              - type: sensor
-                entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_2
+              - type: glance
+                title: Detecteur de Fumée
+                entities:
+                  - entity: sensor.fibaro_system_fgsd002_smoke_sensor_temperature
+                    name: Température
+                  - entity: binary_sensor.fibaro_system_fgsd002_smoke_sensor_sensor
+                    name: Alarm
+              - type: glance
+                title: Porte Entrée
+                entities:
+                  - entity: sensor.philio_technology_corp_pst02_c_door_window_3_in_1_sensor_luminance
+                    name: Lumière
+                  - entity: binary_sensor.philio_technology_corp_pst02_c_door_window_3_in_1_sensor_sensor
+                    name: Porte
           - type: horizontal-stack
             cards:
-              - type: sensor
-                entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_3
-              - type: sensor
-                entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_4
+              - type: glance
+                title: Mezzanine
+                entities:
+                  - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_4
+                    name: Lumière
+                  - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_4
+                    name: Mouvement
+              - type: glance
+                title: SDB
+                entities:
+                  - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_5
+                    name: Lumière
+                  - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_5
+                    name: Mouvement
           - type: horizontal-stack
             cards:
-              - type: sensor
-                entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_5
-              - type: sensor
-                entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_6
+              - type: glance
+                title: WC
+                entities:
+                  - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_6
+                    name: Lumière
+                  - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_6
+                    name: Mouvement
+              - type: glance
+                title: Bureau
+                entities:
+                  - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance
+                    name: Lumière
+                  - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor
+                    name: Mouvement
           - type: horizontal-stack
             cards:
-              - type: sensor
-                entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_7
-  - title: Thermostats
-    icon: mdi:radiator
-    id: thermostats
-    path: thermostats
+              - type: glance
+                title: Chambre
+                entities:
+                  - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_7
+                    name: Lumière
+                  - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_7
+                    name: Mouvement
+              - type: glance
+                title: Salon
+                entities:
+                  - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_3
+                    name: Lumière
+                  - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_3
+                    name: Mouvement
+          - type: horizontal-stack
+            cards:
+              - type: glance
+                title: Cuisine
+                entities:
+                  - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_2
+                    name: Lumière
+                  - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_2
+                    name: Mouvement
+  - title: System
+    icon: mdi:gauge
+    id: system
+    path: system
     cards:
       - type: vertical-stack
         cards:
-          - type: entities
-            title: Radiateur SDB
-            show_header_toggle: false
-            entities:
-              - entity: input_select.radiateur_sdb
-                name: Modes
-          - type: entities
-            title: Radiateur Bureau
-            show_header_toggle: false
-            entities:
-              - entity: input_select.radiateur_bureau
-                name: Modes
-          - type: entities
-            title: Radiateur Chambre
-            show_header_toggle: false
-            entities:
-              - entity: input_select.radiateur_chambre
-                name: Modes
+          - type: custom:vertical-stack-in-card
+            title: Batteries des Capteurs
+            cards:
+              - type: custom:auto-entities
+                card:
+                  type: custom:bar-card
+                  attribute: battery_level
+                  unit_of_measurement: "%"
+                  severity:
+                    - value: 50
+                      color: '#bf4040'
+                    - value: 75
+                      color: '#bf9540'
+                    - value: 100
+                      color: '#40bf40'
+                  title_position: left
+                  padding: 0px 15px 3px 15px
+                  saturation: 50%
+                  columns: 1
+                  height: 15px
+                  width: 60%
+                  card_style:
+                    box-shadow: 0 0
+                  bar_style:
+                    border-radius: 20px
+                  indicator_style:
+                    border-radius: 20px
+                filter:
+                  include:
+                    - attributes:
+                        battery_level: "<=100"
   - title: Media
     icon: mdi:video
     id: medias

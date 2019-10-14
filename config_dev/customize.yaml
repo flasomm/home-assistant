@@ -1,2 +1,4 @@
 person.fabrice_sommavilla:
-  entity_picture: /local/fabrice.jpg
+  entity_picture: /local/images/fabrice.jpg
+  friendly_name: Fabrice
+  icon: /local/images/fabrice.jpg
