@@ -32,7 +32,6 @@ panel_custom:
 map:
 sun:
 system_health:
-history:
 logbook:
 # Discover some devices automatically
 discovery:
@@ -54,67 +53,6 @@ logger:
     asyncio: debug
     homeassistant.components.cloud.iot: debug
 
-input_boolean:
-  vacation_mode:
-    name: Holiday mode, things are locked or shutdown
-    initial: off
-    icon: mdi:airplane
-  night_mode:
-    name: Night mode, the lights do not turn on anymore
-    initial: off
-    icon: mdi:hotel
-
-input_select:
-  radiateur_bureau:
-    name: Mode Radiateur
-    options:
-      - Arret
-      - Hors-gel
-      - Eco
-      - Comfort -2
-      - Comfort -1
-      - Comfort
-    initial: Comfort
-  radiateur_chambre:
-    name: Mode Radiateur
-    options:
-      - Arret
-      - Hors-gel
-      - Eco
-      - Comfort -2
-      - Comfort -1
-      - Comfort
-    initial: Comfort
-  radiateur_sdb:
-    name: Mode Radiateur
-    options:
-      - Arret
-      - Hors-gel
-      - Eco
-      - Comfort -2
-      - Comfort -1
-      - Comfort
-    initial: Comfort
-
-notify:
-  - name: email_notifier
-    platform: smtp
-    server: smtp.gmail.com
-    port: 587
-    timeout: 15
-    sender: flasomm@gmail.com
-    encryption: starttls
-    username: !secret google_account
-    password: !secret google_password
-    sender_name: My Home Assistant
-    debug: true
-    recipient:
-      - flasomm@gmail.com
-  - name: slack_notifier
-    platform: slack
-    api_key: !secret slack_api_key
-    default_channel: '#domotique'
-
 device_tracker:
   - platform: arpscan_tracker
     mac: 58:e2:8f:20:b0:45
@@ -125,64 +63,11 @@ device_tracker:
     consider_home: 60
     track_new_devices: true
 
-sensor:
-  - platform: systemmonitor
-    resources:
-      - type: disk_use_percent
-        arg: /home
-      - type: memory_free
-      - type: processor_use
-      - type: swap_use_percent
-      - type: last_boot
-  - platform: template
-    sensors:
-      phone_battery_level:
-        friendly_name: Phone Battery Level
-        unit_of_measurement: '%'
-        value_template: '{{ state_attr("device_tracker.marcel","battery") }}'
-        icon_template: >-
-          {% set battery_level = state_attr("device_tracker.marcel","battery")|int('unknown') %}
-          {% set battery_round = (battery_level|int / 10)|int * 10 %}
-          {% if battery_level == 'unknown' %}
-            mdi:battery-unknown
-          {% else %}
-            {% if battery_round >= 100 %}
-              mdi:battery
-            {% elif battery_round > 0 %}
-              mdi:battery-{{ battery_round }}
-            {% else %}
-              mdi:battery-alert
-            {% endif %}
-          {% endif %}
-      phone_battery_state:
-        friendly_name: Phone Battery State
-        value_template: >-
-          {% set battery_level = state_attr("device_tracker.marcel","battery")|int('unknown') %}
-          {% set battery_round = (battery_level|int / 10)|int * 10 %}
-          {% set charging = is_state("binary_sensor.phone_battery_increase","on") %}
-          {% set discharging = is_state("binary_sensor.phone_battery_increase","on") %}
-          {% if charging %}
-            Charging
-          {% else %}
-            {% if battery_round >= 100 %}
-              Full
-            {% elif battery_round > 0 %}
-              Unplugged
-            {% else %}
-              Low
-            {% endif %}
-          {% endif %}
-        icon_template: >-
-          {% set battery_level = state_attr("device_tracker.marcel","battery")|int('unknown') %}
-          {% set battery_round = (battery_level|int / 10)|int * 10 %}
-          {% set charging = is_state("binary_sensor.phone_battery_increase","on") %}
-          {% set discharging = is_state("binary_sensor.phone_battery_increase","on") %}
-          {% if charging %}
-            mdi:power-plug
-          {% else %}
-            mdi:power-plug-off
-          {% endif %}
-
+input_boolean: !include input_boolean.yaml
+input_select: !include input_select.yaml
+history: !include history.yaml
+notify: !include notifiers.yaml
+sensor: !include sensors.yaml
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml

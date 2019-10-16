@@ -1,0 +1,17 @@
+- name: email_notifier
+  platform: smtp
+  server: smtp.gmail.com
+  port: 587
+  timeout: 15
+  sender: flasomm@gmail.com
+  encryption: starttls
+  username: !secret google_account
+  password: !secret google_password
+  sender_name: My Home Assistant
+  debug: true
+  recipient:
+    - flasomm@gmail.com
+- name: slack_notifier
+  platform: slack
+  api_key: !secret slack_api_key
+  default_channel: '#domotique'

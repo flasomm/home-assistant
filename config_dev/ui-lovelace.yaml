@@ -30,7 +30,7 @@ views:
               - type: gauge
                 entity: sensor.disk_use_percent_home
               - type: gauge
-                entity: sensor.memory_free
+                entity: sensor.memory_use
               - type: gauge
                 entity: sensor.processor_use
               - type: gauge
@@ -291,3 +291,71 @@ views:
     icon: mdi:security
     id: securite
     path: security
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: glance
+            title: Alarmes Bureau
+            entities:
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_alarm_level
+                name: Niveau Alarme
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_alarm_type
+                name: Type Alarme
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_burglar
+                name: Alarme Cambriolage
+          - type: glance
+            title: Alarmes Cuisine
+            entities:
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_alarm_level_2
+                name: Niveau Alarme
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_alarm_type_2
+                name: Type Alarme
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_burglar_2
+                name: Alarme Cambriolage
+          - type: glance
+            title: Alarmes Salon
+            entities:
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_alarm_level_3
+                name: Niveau Alarme
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_alarm_type_3
+                name: Type Alarme
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_burglar_3
+                name: Alarme Cambriolage
+      - type: vertical-stack
+        cards:
+          - type: glance
+            title: Alarmes Mezzanine
+            entities:
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_alarm_level_4
+                name: Niveau Alarme
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_alarm_type_4
+                name: Type Alarme
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_burglar_4
+                name: Alarme Cambriolage
+          - type: glance
+            title: Alarmes SDB
+            entities:
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_alarm_level_5
+                name: Niveau Alarme
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_alarm_type_5
+                name: Type Alarme
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_burglar_5
+                name: Alarme Cambriolage
+          - type: glance
+            title: Alarmes WC
+            entities:
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_alarm_level_6
+                name: Niveau Alarme
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_alarm_type_6
+                name: Type Alarme
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_burglar_6
+                name: Alarme Cambriolage
+          - type: glance
+            title: Alarmes Chambre
+            entities:
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_alarm_level_7
+                name: Niveau Alarme
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_alarm_type_7
+                name: Type Alarme
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_burglar_7
+                name: Alarme Cambriolage

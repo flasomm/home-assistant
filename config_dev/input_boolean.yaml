@@ -1,0 +1,8 @@
+vacation_mode:
+  name: Holiday mode, things are locked or shutdown
+  initial: off
+  icon: mdi:airplane
+night_mode:
+  name: Night mode, the lights do not turn on anymore
+  initial: off
+  icon: mdi:hotel
