@@ -63,6 +63,8 @@ device_tracker:
     consider_home: 60
     track_new_devices: true
 
+binary_sensor: !include binary_sensors.yaml
+alert: !include alerts.yaml
 input_boolean: !include input_boolean.yaml
 input_select: !include input_select.yaml
 history: !include history.yaml
@@ -71,7 +73,6 @@ sensor: !include sensors.yaml
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
-
 
 zwave:
   usb_path: /dev/ttyAMA0

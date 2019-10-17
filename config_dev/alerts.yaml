@@ -1,0 +1,63 @@
+alarme_bureau:
+  name: "[Alarme] Capteur Bureau"
+  entity_id: binary_sensor.bureau_alarm
+  state: 'on'
+  repeat: 5
+  message: Alarme de capteur de Bureau active!
+  notifiers:
+    - email_notifier
+    - slack_notifier
+alarme_cuisine:
+  name: "[Alarme] Capteur Cuisine"
+  entity_id: binary_sensor.cuisine_alarm
+  state: 'on'
+  repeat: 5
+  message: Alarme de capteur de Cuisine active!
+  notifiers:
+    - email_notifier
+    - slack_notifier
+alarme_salon:
+  name: "[Alarme] Capteur Salon"
+  entity_id: binary_sensor.salon_alarm
+  state: 'on'
+  repeat: 5
+  message: Alarme de capteur de Salon active!
+  notifiers:
+    - email_notifier
+    - slack_notifier
+alarme_mezzanine:
+  name: "[Alarme] Capteur Mezzanine"
+  entity_id: binary_sensor.mezzanine_alarm
+  state: 'on'
+  repeat: 5
+  message: Alarme de capteur de Mezzanine active!
+  notifiers:
+    - email_notifier
+    - slack_notifier
+alarme_sdb:
+  name: "[Alarme] Capteur SDB"
+  entity_id: binary_sensor.sdb_alarm
+  state: 'on'
+  repeat: 5
+  message: Alarme de capteur de SDB active!
+  notifiers:
+    - email_notifier
+    - slack_notifier
+alarme_wc:
+  name: "[Alarme] Capteur WC"
+  entity_id: binary_sensor.wc_alarm
+  state: 'on'
+  repeat: 5
+  message: Alarme de capteur de WC active!
+  notifiers:
+    - email_notifier
+    - slack_notifier
+alarme_chambre:
+  name: "[Alarme] Capteur Chambre"
+  entity_id: binary_sensor.chambre_alarm
+  state: 'on'
+  repeat: 5
+  message: Alarme de capteur de Chambre active!
+  notifiers:
+    - email_notifier
+    - slack_notifier

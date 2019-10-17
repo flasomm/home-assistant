@@ -1,0 +1,23 @@
+- platform: template
+  sensors:
+    bureau_alarm:
+      value_template: "{{ states('sensor.fibaro_system_fgms001_zw5_motion_sensor_burglar') | float ==  3 }}"
+      friendly_name: '[Alarme] Capteur Bureau active ?'
+    cuisine_alarm:
+      value_template: "{{ states('sensor.fibaro_system_fgms001_zw5_motion_sensor_burglar_2') | float ==  3 }}"
+      friendly_name: '[Alarme] Capteur Cuisine active ?'
+    salon_alarm:
+      value_template: "{{ states('sensor.fibaro_system_fgms001_zw5_motion_sensor_burglar_3') | float ==  3 }}"
+      friendly_name: '[Alarme] Capteur Salon active ?'
+    mezzanine_alarm:
+      value_template: "{{ states('sensor.fibaro_system_fgms001_zw5_motion_sensor_burglar_4') | float ==  3 }}"
+      friendly_name: '[Alarme] Capteur Mezzanine active ?'
+    sdb_alarm:
+      value_template: "{{ states('sensor.fibaro_system_fgms001_zw5_motion_sensor_burglar_5') | float ==  3 }}"
+      friendly_name: '[Alarme] Capteur SDB active ?'
+    wc_alarm:
+      value_template: "{{ states('sensor.fibaro_system_fgms001_zw5_motion_sensor_burglar_6') | float ==  3 }}"
+      friendly_name: '[Alarme] Capteur WC active ?'
+    chambre_alarm:
+      value_template: "{{ states('sensor.fibaro_system_fgms001_zw5_motion_sensor_burglar_7') | float ==  3 }}"
+      friendly_name: '[Alarme] Capteur Chambre active ?'
