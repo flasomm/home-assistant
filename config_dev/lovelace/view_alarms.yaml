@@ -1,0 +1,111 @@
+title: Alarmes
+icon: mdi:security
+id: alarms
+path: alarms
+cards:
+  - type: vertical-stack
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: glance
+            title: Alarmes Bureau
+            entities:
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_alarm_level
+                name: Niveau
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_alarm_type
+                name: Type
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_burglar
+                name: Cambriolage
+          - type: glance
+            title: Alarmes Cuisine
+            entities:
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_alarm_level_2
+                name: Niveau
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_alarm_type_2
+                name: Type
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_burglar_2
+                name: Cambriolage
+      - type: horizontal-stack
+        cards:
+          - type: glance
+            title: Alarmes Salon
+            entities:
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_alarm_level_3
+                name: Niveau
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_alarm_type_3
+                name: Type
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_burglar_3
+                name: Cambriolage
+          - type: glance
+            title: Alarmes Chambre
+            entities:
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_alarm_level_7
+                name: Niveau
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_alarm_type_7
+                name: Type
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_burglar_7
+                name: Cambriolage
+      - type: horizontal-stack
+        cards:
+          - type: glance
+            title: Alarmes Mezzanine
+            entities:
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_alarm_level_4
+                name: Niveau
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_alarm_type_4
+                name: Type
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_burglar_4
+                name: Cambriolage
+          - type: glance
+            title: Alarmes SDB
+            entities:
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_alarm_level_5
+                name: Niveau
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_alarm_type_5
+                name: Type
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_burglar_5
+                name: Cambriolage
+      - type: horizontal-stack
+        cards:
+          - type: glance
+            title: Alarmes WC
+            entities:
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_alarm_level_6
+                name: Niveau Alarme
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_alarm_type_6
+                name: Type Alarme
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_burglar_6
+                name: Alarme Cambriolage
+  - type: vertical-stack
+    cards:
+      - type: custom:vertical-stack-in-card
+        title: Batteries des Capteurs
+        cards:
+          - type: custom:auto-entities
+            card:
+              type: custom:bar-card
+              attribute: battery_level
+              unit_of_measurement: "%"
+              severity:
+                - value: 50
+                  color: '#bf4040'
+                - value: 75
+                  color: '#bf9540'
+                - value: 100
+                  color: '#40bf40'
+              title_position: left
+              padding: 0px 15px 3px 15px
+              saturation: 50%
+              columns: 1
+              height: 15px
+              width: 60%
+              card_style:
+                box-shadow: 0 0
+              bar_style:
+                border-radius: 20px
+              indicator_style:
+                border-radius: 20px
+            filter:
+              include:
+                - attributes:
+                    battery_level: "<=100"
