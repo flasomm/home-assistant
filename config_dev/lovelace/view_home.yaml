@@ -7,15 +7,13 @@ cards:
     cards:
       - type: horizontal-stack
         cards:
-          - type: picture-glance
+          - type: glance
             title: Fabrice
             entities:
-              - sensor.fabrice_at_home
-              - sensor.marcel_battery_level
-            state_image:
-              "home": /local/images/fabrice.png?v=2
-              "not_home": /local/images/fabrice_away.png?v=2
-            entity: device_tracker.marcel
+              - entity: sensor.fabrice_at_home
+                name: Statut
+              - entity: sensor.marcel_battery_level
+                name: Marcel
           - type: vertical-stack
             cards:
               - type: conditional

@@ -147,7 +147,7 @@
 
 # Détecteur de fumée
 - id: '1570382367987'
-  alias: '[Alarm] Détecteur de Fumée'
+  alias: '[Alarme] Détecteur de Fumée'
   trigger:
     - entity_id: sensor.fibaro_system_fgsd002_smoke_sensor_smoke
       from: 'off'
@@ -157,8 +157,8 @@
   action:
     - service: group.all_notifiers
       data:
-        message: Fumée détecté à la maison
         title: '[Alarm] Détecteur de Fumée Activé'
+        message: Fumée détecté à la maison
 
 # Radiateur Bureau
 - id: '322e1962112842dab4defab990286212'
@@ -378,3 +378,17 @@
     service: light.turn_off
     data:
       entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_2
+
+- id: '331695928c4e42'
+  alias: Test
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor
+    from: 'off'
+    to: 'on'
+  action:
+    - service: notifier.ios_fabrice
+      data:
+        title: '[Alarm] Test'
+        message: test...

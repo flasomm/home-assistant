@@ -49,6 +49,14 @@ recorder:
 tts:
   - platform: google_translate
 
+speedtestdotnet:
+  scan_interval:
+    hours: 3
+  monitored_conditions:
+    - ping
+    - download
+    - upload
+
 logger:
   default: info
   logs:

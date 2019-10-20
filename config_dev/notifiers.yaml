@@ -11,6 +11,7 @@
   debug: true
   recipient:
     - flasomm@gmail.com
+
 - name: slack_notifier
   platform: slack
   api_key: !secret slack_api_key
