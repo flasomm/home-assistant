@@ -1,63 +1,123 @@
-alarme_bureau:
+alarme_bureau_burglar:
   name: "[Alarme] Capteur Bureau"
-  entity_id: binary_sensor.bureau_alarm
+  entity_id: binary_sensor.bureau_burglar_alarm
   state: 'on'
   repeat: 5
   message: Alarme de capteur de Bureau active!
   notifiers:
     - email_notifier
     - slack_notifier
-alarme_cuisine:
+alarme_cuisine_burglar:
   name: "[Alarme] Capteur Cuisine"
-  entity_id: binary_sensor.cuisine_alarm
+  entity_id: binary_sensor.cuisine_burglar_alarm
   state: 'on'
   repeat: 5
   message: Alarme de capteur de Cuisine active!
   notifiers:
     - email_notifier
     - slack_notifier
-alarme_salon:
+alarme_salon_burglar:
   name: "[Alarme] Capteur Salon"
-  entity_id: binary_sensor.salon_alarm
+  entity_id: binary_sensor.salon_burglar_alarm
   state: 'on'
   repeat: 5
   message: Alarme de capteur de Salon active!
   notifiers:
     - email_notifier
     - slack_notifier
-alarme_mezzanine:
+alarme_mezzanine_burglar:
   name: "[Alarme] Capteur Mezzanine"
-  entity_id: binary_sensor.mezzanine_alarm
+  entity_id: binary_sensor.mezzanine_burglar_alarm
   state: 'on'
   repeat: 5
   message: Alarme de capteur de Mezzanine active!
   notifiers:
-    - email_notifier
-    - slack_notifier
-alarme_sdb:
+    - group.all_notifiers
+alarme_sdb_burglar:
   name: "[Alarme] Capteur SDB"
-  entity_id: binary_sensor.sdb_alarm
+  entity_id: binary_sensor.sdb_burglar_alarm
   state: 'on'
   repeat: 5
   message: Alarme de capteur de SDB active!
   notifiers:
-    - email_notifier
-    - slack_notifier
-alarme_wc:
+    - group.all_notifiers
+alarme_wc_burglar:
   name: "[Alarme] Capteur WC"
-  entity_id: binary_sensor.wc_alarm
+  entity_id: binary_sensor.wc_burglar_alarm
   state: 'on'
   repeat: 5
   message: Alarme de capteur de WC active!
   notifiers:
-    - email_notifier
-    - slack_notifier
-alarme_chambre:
+    - group.all_notifiers
+alarme_chambre_burglar:
   name: "[Alarme] Capteur Chambre"
-  entity_id: binary_sensor.chambre_alarm
+  entity_id: binary_sensor.chambre_burglar_alarm
   state: 'on'
+  skip_first: true
   repeat: 5
   message: Alarme de capteur de Chambre active!
   notifiers:
-    - email_notifier
-    - slack_notifier
+    - group.all_notifiers
+alarme_bureau_mouvement:
+  name: "[Alarme] Mouvements détectés Bureau"
+  entity_id: binary_sensor.bureau_mouvement_alarm
+  state: 'on'
+  skip_first: true
+  repeat: 5
+  message: Alarme Mouvements détectés Bureau!
+  notifiers:
+    - group.all_notifiers
+alarme_cuisine_mouvement:
+  name: "[Alarme] Mouvements détectés Cuisine"
+  entity_id: binary_sensor.cuisine_mouvement_alarm
+  state: 'on'
+  skip_first: true
+  repeat: 5
+  message: Alarme Mouvements détectés Cuisine!
+  notifiers:
+    - group.all_notifiers
+alarme_salon_mouvement:
+  name: "[Alarme] Mouvements détectés Salon"
+  entity_id: binary_sensor.salon_mouvement_alarm
+  state: 'on'
+  skip_first: true
+  repeat: 5
+  message: Alarme Mouvements détectés Salon!
+  notifiers:
+    - group.all_notifiers
+alarme_mezzanine_mouvement:
+  name: "[Alarme] Mouvements détectés Mezzanine"
+  entity_id: binary_sensor.mezzanine_mouvement_alarm
+  state: 'on'
+  skip_first: true
+  repeat: 5
+  message: Alarme Mouvements détectés Mezzanine!
+  notifiers:
+    - group.all_notifiers
+alarme_sdb_mouvement:
+  name: "[Alarme] Mouvements détectés SDB"
+  entity_id: binary_sensor.sdb_mouvement_alarm
+  state: 'on'
+  skip_first: true
+  repeat: 5
+  message: Alarme Mouvements détectés SDB!
+  notifiers:
+    - group.all_notifiers
+alarme_wc_mouvement:
+  name: "[Alarme] Mouvements détectés WC"
+  entity_id: binary_sensor.wc_mouvement_alarm
+  state: 'on'
+  skip_first: true
+  repeat: 5
+  message: Alarme Mouvements détectés WC!
+  notifiers:
+    - group.all_notifiers
+alarme_chambre_mouvement:
+  name: "[Alarme] Mouvements détectés Chambre"
+  entity_id: binary_sensor.chambre_mouvement_alarm
+  state: 'on'
+  skip_first: true
+  repeat: 5
+  message: Alarme Mouvements détectés Chambre!
+  notifiers:
+    - group.all_notifiers

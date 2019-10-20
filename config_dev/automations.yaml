@@ -8,9 +8,8 @@
       to: 'on'
   condition:
     - condition: template
-      value_template: '{{ is_state(''input_boolean.vacation_mode'', ''off'') and is_state(''input_boolean.night_mode'',
-      ''off'') and (is_state(''sun.sun'', ''below_horizon'') or sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_5
-      <= 10) }}'
+      value_template: '{{ is_state(''binary_sensor.night_holiday_mode_off'', ''on'') and
+      (is_state(''sun.sun'', ''below_horizon'') or sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_5 <= 10) }}'
   action:
     - device_id: 0e8162190b144387b9c444585d2bde2d
       domain: light
@@ -27,8 +26,7 @@
       for: 0:10:00
   condition:
     - condition: template
-      value_template: '{{ is_state(''input_boolean.vacation_mode'', ''off'') and is_state(''input_boolean.night_mode'',
-      ''off'') }}'
+      value_template: '{{ is_state(''binary_sensor.night_holiday_mode_off'', ''on'') }}'
   action:
     - device_id: 0e8162190b144387b9c444585d2bde2d
       domain: light
@@ -45,9 +43,8 @@
       to: 'on'
   condition:
     - condition: template
-      value_template: '{{ is_state(''input_boolean.vacation_mode'', ''off'') and is_state(''input_boolean.night_mode'',
-      ''off'') and (is_state(''sun.sun'', ''below_horizon'') or sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_6
-      <= 10) }}'
+      value_template: '{{ is_state(''binary_sensor.night_holiday_mode_off'', ''on'') and
+      (is_state(''sun.sun'', ''below_horizon'') or sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_6 <= 10) }}'
   action:
     - device_id: 28143c590fb74335bdf41fbad0cda011
       domain: light
@@ -64,8 +61,7 @@
       for: 0:10:00
   condition:
     - condition: template
-      value_template: '{{ is_state(''input_boolean.vacation_mode'', ''off'') and is_state(''input_boolean.night_mode'',
-      ''off'') }}'
+      value_template: '{{ is_state(''binary_sensor.night_holiday_mode_off'', ''on'') }}'
   action:
     - device_id: 28143c590fb74335bdf41fbad0cda011
       domain: light
@@ -82,9 +78,8 @@
       to: 'on'
   condition:
     - condition: template
-      value_template: '{{ is_state(''input_boolean.vacation_mode'', ''off'') and is_state(''input_boolean.night_mode'',
-      ''off'') and (is_state(''sun.sun'', ''below_horizon'') or sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_4
-      <= 10) }}'
+      value_template: '{{ is_state(''binary_sensor.night_holiday_mode_off'', ''on'') and
+      (is_state(''sun.sun'', ''below_horizon'') or sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_4 <= 10) }}'
   action:
     - device_id: 58fb1cb61846485e95b002addc372574
       domain: light
@@ -100,8 +95,7 @@
       to: 'off'
   condition:
     - condition: template
-      value_template: '{{ is_state(''input_boolean.vacation_mode'', ''off'') and is_state(''input_boolean.night_mode'',
-      ''off'') }}'
+      value_template: '{{ is_state(''binary_sensor.night_holiday_mode_off'', ''on'') }}'
   action:
     - device_id: 58fb1cb61846485e95b002addc372574
       domain: light
@@ -126,9 +120,8 @@
       to: 'on'
   condition:
     - condition: template
-      value_template: '{{ is_state(''input_boolean.vacation_mode'', ''off'') and is_state(''input_boolean.night_mode'',
-      ''off'') and (is_state(''sun.sun'', ''below_horizon'') or sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_3
-      <= 10) }}'
+      value_template: '{{ is_state(''binary_sensor.night_holiday_mode_off'', ''on'') and
+      (is_state(''sun.sun'', ''below_horizon'') or sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_3 <= 10) }}'
   action:
     - device_id: 3e22928a56144c52bc9b3ea209763b92
       domain: switch
@@ -145,8 +138,7 @@
       for: 0:10:00
   condition:
     - condition: template
-      value_template: '{{ is_state(''input_boolean.vacation_mode'', ''off'') and is_state(''input_boolean.night_mode'',
-      ''off'') }}'
+      value_template: '{{ is_state(''binary_sensor.night_holiday_mode_off'', ''on'') }}'
   action:
     - device_id: 3e22928a56144c52bc9b3ea209763b92
       domain: switch
@@ -163,11 +155,7 @@
       to: 'on'
   condition: []
   action:
-    - service: notify.slack_notifier
-      data:
-        message: Fumée détecté à la maison
-        title: '[Alarm] Détecteur de Fumée Activé'
-    - service: notify.email_notifier
+    - service: group.all_notifiers
       data:
         message: Fumée détecté à la maison
         title: '[Alarm] Détecteur de Fumée Activé'

@@ -6,51 +6,15 @@
     - type: swap_use_percent
     - type: processor_use
     - type: last_boot
+
 - platform: template
   sensors:
-    phone_battery_level:
-      friendly_name: Phone Battery Level
-      unit_of_measurement: '%'
-      value_template: '{{ state_attr("device_tracker.marcel","battery") }}'
-      icon_template: >-
-        {% set battery_level = state_attr("device_tracker.marcel","battery")|int('unknown') %}
-        {% set battery_round = (battery_level|int / 10)|int * 10 %}
-        {% if battery_level == 'unknown' %}
-          mdi:battery-unknown
+    fabrice_at_home:
+      friendly_name: Statut
+      value_template: '{{ states.device_tracker.marcel.state }}'
+      icon_template: >
+        {% if is_state('device_tracker.marcel', 'home') %}
+          mdi:home
         {% else %}
-          {% if battery_round >= 100 %}
-            mdi:battery
-          {% elif battery_round > 0 %}
-            mdi:battery-{{ battery_round }}
-          {% else %}
-            mdi:battery-alert
-          {% endif %}
-        {% endif %}
-    phone_battery_state:
-      friendly_name: Phone Battery State
-      value_template: >-
-        {% set battery_level = state_attr("device_tracker.marcel","battery")|int('unknown') %}
-        {% set battery_round = (battery_level|int / 10)|int * 10 %}
-        {% set charging = is_state("binary_sensor.phone_battery_increase","on") %}
-        {% set discharging = is_state("binary_sensor.phone_battery_increase","on") %}
-        {% if charging %}
-          Charging
-        {% else %}
-          {% if battery_round >= 100 %}
-            Full
-          {% elif battery_round > 0 %}
-            Unplugged
-          {% else %}
-            Low
-          {% endif %}
-        {% endif %}
-      icon_template: >-
-        {% set battery_level = state_attr("device_tracker.marcel","battery")|int('unknown') %}
-        {% set battery_round = (battery_level|int / 10)|int * 10 %}
-        {% set charging = is_state("binary_sensor.phone_battery_increase","on") %}
-        {% set discharging = is_state("binary_sensor.phone_battery_increase","on") %}
-        {% if charging %}
-          mdi:power-plug
-        {% else %}
-          mdi:power-plug-off
+          mdi:exit-run
         {% endif %}

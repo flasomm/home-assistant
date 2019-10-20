@@ -2,3 +2,60 @@ title: System
 icon: mdi:gauge
 id: system
 path: system
+cards:
+  - type: vertical-stack
+    cards:
+      - type: history-graph
+        title: 'Neufbox Router'
+        entities:
+          - entity: sensor.neufbox_router_bytes_received
+            name: Router Bytes Received
+          - entity: sensor.neufbox_router_bytes_sent
+            name: Router Bytes Send
+          - entity: sensor.neufbox_router_kbyte_sec_received
+            name: Router kbytes/sec Received
+          - entity: sensor.neufbox_router_kbyte_sec_sent
+            name: Router kbytes/sec Sent
+          - entity: sensor.neufbox_router_packets_received
+            name: Router Packets Received
+          - entity: sensor.neufbox_router_packets_sent
+            name: Router Packets Sent
+          - entity: sensor.neufbox_router_packets_sec_received
+            name: Router Packets/Sec Received
+          - entity: sensor.neufbox_router_packets_sec_sent
+            name: Router Packets/Sec Sent
+
+  - type: vertical-stack
+    cards:
+      - type: custom:vertical-stack-in-card
+        title: Etats des Batteries
+        cards:
+          - type: custom:auto-entities
+            card:
+              type: custom:bar-card
+              attribute: battery_level
+              unit_of_measurement: "%"
+              severity:
+                - value: 50
+                  color: '#bf4040'
+                - value: 75
+                  color: '#bf9540'
+                - value: 100
+                  color: '#40bf40'
+              title_position: left
+              padding: 0px 15px 3px 15px
+              saturation: 50%
+              columns: 1
+              height: 15px
+              width: 50%
+              card_style:
+                box-shadow: 0 0
+              bar_style:
+                border-radius: 10px
+              indicator_style:
+                border-radius: 10px
+            filter:
+              include:
+                - attributes:
+                    battery_level: "<=100"
+

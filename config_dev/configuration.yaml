@@ -41,6 +41,10 @@ mobile_app:
 ios:
 person:
 
+recorder:
+  purge_interval: 1
+  purge_keep_days: 3
+
 # Text to speech
 tts:
   - platform: google_translate

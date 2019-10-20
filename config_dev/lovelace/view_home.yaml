@@ -5,20 +5,102 @@ path: dashboard
 cards:
   - type: vertical-stack
     cards:
-      - type: glance
-        entities:
-          - entity: person.fabrice_sommavilla
-            name: Fabrice
+      - type: horizontal-stack
+        cards:
+          - type: picture-glance
+            title: Fabrice
+            entities:
+              - sensor.fabrice_at_home
+              - sensor.marcel_battery_level
+            state_image:
+              "home": /local/images/fabrice.png?v=2
+              "not_home": /local/images/fabrice_away.png?v=2
+            entity: device_tracker.marcel
+          - type: vertical-stack
+            cards:
+              - type: conditional
+                conditions:
+                  - entity: input_boolean.night_mode
+                    state: "on"
+                card:
+                  type: entity-button
+                  entity: input_boolean.night_mode
+                  name: Mode Nuit (on)
+                  icon: mdi:hotel
+                  icon_height: 40px
+                  hold_action: call-service
+                  service: input_boolean.turn_off
+                  service_data:
+                    entity_id: input_boolean.night_mode
+              - type: conditional
+                conditions:
+                  - entity: input_boolean.night_mode
+                    state: "off"
+                card:
+                  type: entity-button
+                  entity: input_boolean.night_mode
+                  name: Mode Nuit (off)
+                  icon: mdi:hotel
+                  icon_height: 40px
+                  hold_action: call-service
+                  service: input_boolean.turn_on
+                  service_data:
+                    entity_id: input_boolean.night_mode
+              - type: conditional
+                conditions:
+                  - entity: input_boolean.vacation_mode
+                    state: "on"
+                card:
+                  type: entity-button
+                  entity: input_boolean.vacation_mode
+                  name: Mode Vacances (on)
+                  icon: mdi:airplane
+                  icon_height: 40px
+                  hold_action: call-service
+                  service: input_boolean.turn_off
+                  service_data:
+                    entity_id: input_boolean.vacation_mode
+              - type: conditional
+                conditions:
+                  - entity: input_boolean.vacation_mode
+                    state: "off"
+                card:
+                  type: entity-button
+                  entity: input_boolean.vacation_mode
+                  name: Mode Vacances (off)
+                  icon: mdi:airplane
+                  icon_height: 40px
+                  hold_action: call-service
+                  service: input_boolean.turn_on
+                  service_data:
+                    entity_id: input_boolean.vacation_mode
+
       - type: horizontal-stack
         cards:
           - type: gauge
             entity: sensor.disk_use_percent_home
+            severity:
+              green: 0
+              yellow: 45
+              red: 85
           - type: gauge
             entity: sensor.memory_use
+            severity:
+              green: 0
+              yellow: 45
+              red: 85
           - type: gauge
             entity: sensor.processor_use
+            severity:
+              green: 0
+              yellow: 45
+              red: 85
           - type: gauge
             entity: sensor.swap_use_percent
+            severity:
+              green: 0
+              yellow: 45
+              red: 85
       - type: weather-forecast
         entity: weather.maison
       - type: entities
@@ -35,100 +117,42 @@ cards:
     cards:
       - type: horizontal-stack
         cards:
-          - type: conditional
-            conditions:
-              - entity: input_boolean.night_mode
-                state: "on"
-            card:
-              type: entity-button
-              entity: input_boolean.night_mode
-              name: Mode Nuit (on)
-              icon: mdi:hotel
-              icon_height: 40px
-              hold_action: call-service
-              service: input_boolean.turn_off
-              service_data:
-                entity_id: input_boolean.night_mode
-          - type: conditional
-            conditions:
-              - entity: input_boolean.night_mode
-                state: "off"
-            card:
-              type: entity-button
-              entity: input_boolean.night_mode
-              name: Mode Nuit (off)
-              icon: mdi:hotel
-              icon_height: 40px
-              hold_action: call-service
-              service: input_boolean.turn_on
-              service_data:
-                entity_id: input_boolean.night_mode
-          - type: conditional
-            conditions:
-              - entity: input_boolean.vacation_mode
-                state: "on"
-            card:
-              type: entity-button
-              entity: input_boolean.vacation_mode
-              name: Mode Vacances (on)
-              icon: mdi:airplane
-              icon_height: 40px
-              hold_action: call-service
-              service: input_boolean.turn_off
-              service_data:
-                entity_id: input_boolean.vacation_mode
-          - type: conditional
-            conditions:
-              - entity: input_boolean.vacation_mode
-                state: "off"
-            card:
-              type: entity-button
-              entity: input_boolean.vacation_mode
-              name: Mode Vacances (off)
-              icon: mdi:airplane
-              icon_height: 40px
-              hold_action: call-service
-              service: input_boolean.turn_on
-              service_data:
-                entity_id: input_boolean.vacation_mode
-      - type: horizontal-stack
-        cards:
           - type: sensor
-            name: Temp. Bureau
+            name: Bureau
             graph: line
             entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature
           - type: sensor
-            name: Temp. Cuisine
+            name: Cuisine
             graph: line
             entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_2
       - type: horizontal-stack
         cards:
           - type: sensor
-            name: Temp. Salon
+            name: Salon
             graph: line
             entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_3
           - type: sensor
-            name: Temp. Mezzanine
+            name: Mezzanine
             graph: line
             entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_4
       - type: horizontal-stack
         cards:
           - type: sensor
-            name: Temp. SDB
+            name: SDB
             graph: line
             entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_5
           - type: sensor
-            name: Temp. WC
+            name: WC
             graph: line
             entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_6
       - type: horizontal-stack
         cards:
           - type: sensor
-            name: Temp. Chambre
+            name: Chambre
             graph: line
             entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_7
           - type: sensor
-            name: Temp. Entrée
+            name: Entrée
             graph: line
             entity: sensor.philio_technology_corp_pst02_c_door_window_3_in_1_sensor_temperature
       - type: horizontal-stack

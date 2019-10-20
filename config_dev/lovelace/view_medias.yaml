@@ -2,3 +2,6 @@ title: Media
 icon: mdi:video
 id: medias
 path: medias
+cards:
+  - type: media-control
+    entity: media_player.salon
