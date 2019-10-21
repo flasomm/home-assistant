@@ -155,7 +155,7 @@
       to: 'on'
   condition: []
   action:
-    - service: group.all_notifiers
+    - service: notify.all_notifiers
       data:
         title: '[Alarm] Détecteur de Fumée Activé'
         message: Fumée détecté à la maison
@@ -378,17 +378,3 @@
     service: light.turn_off
     data:
       entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_2
-
-- id: '331695928c4e42'
-  alias: Test
-  initial_state: 'on'
-  trigger:
-    platform: state
-    entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor
-    from: 'off'
-    to: 'on'
-  action:
-    - service: notifier.ios_fabrice
-      data:
-        title: '[Alarm] Test'
-        message: test...

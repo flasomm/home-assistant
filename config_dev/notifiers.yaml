@@ -16,3 +16,14 @@
   platform: slack
   api_key: !secret slack_api_key
   default_channel: '#domotique'
+
+- name: phone_fabrice
+  platform: ios
+  target: !secret ios_push_id
+
+- name: all_notifiers
+  platform: group
+  services:
+    - service: email_notifier
+    - service: slack_notifier
+    - service: phone_fabrice

@@ -4,54 +4,54 @@ alarme_bureau_burglar:
   state: 'on'
   repeat: 5
   title: "[Alarme] Capteur Bureau"
-  message: Alarme de capteur de Bureau active!
+  message: Alarme capteur de Bureau active!
   notifiers:
-    - group.all_notifiers
+    - all_notifiers
 alarme_cuisine_burglar:
   name: "[Alarme] Capteur Cuisine"
   entity_id: binary_sensor.cuisine_burglar_alarm
   state: 'on'
   repeat: 5
   title: "[Alarme] Capteur Cuisine"
-  message: Alarme de capteur de Cuisine active!
+  message: Alarme capteur de Cuisine active!
   notifiers:
-    - group.all_notifiers
+    - all_notifiers
 alarme_salon_burglar:
   name: "[Alarme] Capteur Salon"
   entity_id: binary_sensor.salon_burglar_alarm
   state: 'on'
   repeat: 5
   title: "[Alarme] Capteur Salon"
-  message: Alarme de capteur de Salon active!
+  message: Alarme capteur de Salon active!
   notifiers:
-    - group.all_notifiers
+    - all_notifiers
 alarme_mezzanine_burglar:
   name: "[Alarme] Capteur Mezzanine"
   entity_id: binary_sensor.mezzanine_burglar_alarm
   state: 'on'
   repeat: 5
   title: "[Alarme] Capteur Mezzanine"
-  message: Alarme de capteur de Mezzanine active!
+  message: Alarme capteur de Mezzanine active!
   notifiers:
-    - group.all_notifiers
+    - all_notifiers
 alarme_sdb_burglar:
   name: "[Alarme] Capteur SDB"
   entity_id: binary_sensor.sdb_burglar_alarm
   state: 'on'
   repeat: 5
   title: "[Alarme] Capteur SDB"
-  message: Alarme de capteur de SDB active!
+  message: Alarme capteur de SDB active!
   notifiers:
-    - group.all_notifiers
+    - all_notifiers
 alarme_wc_burglar:
   name: "[Alarme] Capteur WC"
   entity_id: binary_sensor.wc_burglar_alarm
   state: 'on'
   repeat: 5
   title: "[Alarme] Capteur WC"
-  message: Alarme de capteur de WC active!
+  message: Alarme capteur de WC active!
   notifiers:
-    - group.all_notifiers
+    - all_notifiers
 alarme_chambre_burglar:
   name: "[Alarme] Capteur Chambre"
   entity_id: binary_sensor.chambre_burglar_alarm
@@ -59,9 +59,9 @@ alarme_chambre_burglar:
   skip_first: true
   repeat: 5
   title: "[Alarme] Capteur Chambre"
-  message: Alarme de capteur de Chambre active!
+  message: Alarme capteur de Chambre active!
   notifiers:
-    - group.all_notifiers
+    - all_notifiers
 alarme_bureau_mouvement:
   name: "[Alarme] Mouvements détectés Bureau"
   entity_id: binary_sensor.bureau_mouvement_alarm
@@ -71,7 +71,7 @@ alarme_bureau_mouvement:
   title: "[Alarme] Mouvements détectés Bureau"
   message: Alarme Mouvements détectés Bureau!
   notifiers:
-    - group.all_notifiers
+    - all_notifiers
 alarme_cuisine_mouvement:
   name: "[Alarme] Mouvements détectés Cuisine"
   entity_id: binary_sensor.cuisine_mouvement_alarm
@@ -81,7 +81,7 @@ alarme_cuisine_mouvement:
   title: "[Alarme] Mouvements détectés Cuisine"
   message: Alarme Mouvements détectés Cuisine!
   notifiers:
-    - group.all_notifiers
+    - all_notifiers
 alarme_salon_mouvement:
   name: "[Alarme] Mouvements détectés Salon"
   entity_id: binary_sensor.salon_mouvement_alarm
@@ -91,7 +91,7 @@ alarme_salon_mouvement:
   title: "[Alarme] Mouvements détectés Salon"
   message: Alarme Mouvements détectés Salon!
   notifiers:
-    - group.all_notifiers
+    - all_notifiers
 alarme_mezzanine_mouvement:
   name: "[Alarme] Mouvements détectés Mezzanine"
   entity_id: binary_sensor.mezzanine_mouvement_alarm
@@ -101,7 +101,7 @@ alarme_mezzanine_mouvement:
   title: "[Alarme] Mouvements détectés Mezzanine"
   message: Alarme Mouvements détectés Mezzanine!
   notifiers:
-    - group.all_notifiers
+    - all_notifiers
 alarme_sdb_mouvement:
   name: "[Alarme] Mouvements détectés SDB"
   entity_id: binary_sensor.sdb_mouvement_alarm
@@ -111,7 +111,7 @@ alarme_sdb_mouvement:
   title: "[Alarme] Mouvements détectés SDB"
   message: Alarme Mouvements détectés SDB!
   notifiers:
-    - group.all_notifiers
+    - all_notifiers
 alarme_wc_mouvement:
   name: "[Alarme] Mouvements détectés WC"
   entity_id: binary_sensor.wc_mouvement_alarm
@@ -121,7 +121,7 @@ alarme_wc_mouvement:
   title: "[Alarme] Mouvements détectés WC"
   message: Alarme Mouvements détectés WC!
   notifiers:
-    - group.all_notifiers
+    - all_notifiers
 alarme_chambre_mouvement:
   name: "[Alarme] Mouvements détectés Chambre"
   entity_id: binary_sensor.chambre_mouvement_alarm
@@ -131,4 +131,4 @@ alarme_chambre_mouvement:
   title: "[Alarme] Mouvements détectés Chambre"
   message: Alarme Mouvements détectés Chambre!
   notifiers:
-    - group.all_notifiers
+    - all_notifiers

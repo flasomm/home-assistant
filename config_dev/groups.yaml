@@ -27,9 +27,3 @@ all_person:
   name: Toutes les personnes
   entities:
     - person.fabrice_sommavilla
-all_notifiers:
-  name: Toutes les notifications
-  entities:
-    - notifier.email_notifier
-    - notifier.slack_notifier
-    - notify.ios_marcel
