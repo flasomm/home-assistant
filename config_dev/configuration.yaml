@@ -18,6 +18,8 @@ config:
 frontend:
   themes: !include themes.yaml
   javascript_version: latest
+  extra_html_url:
+    - /local/custom-lovelace/floorplan/state-card-floorplan.html
 
 lovelace:
   mode: yaml
@@ -27,6 +29,11 @@ panel_custom:
     sidebar_title: ZWave Graph
     sidebar_icon: mdi:access-point-network
     url_path: zwave
+  - name: floorplan
+    sidebar_title: Floorplan
+    sidebar_icon: mdi:home
+    url_path: floorplan
+    config: !include floorplan.yaml
 
 # Enables a map showing the location of tracked devices
 map:

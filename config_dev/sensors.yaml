@@ -18,3 +18,20 @@
         {% else %}
           mdi:exit-run
         {% endif %}
+
+- platform: synologydsm
+  host: 192.168.1.22
+  username: !secret synology_user
+  password: !secret synology_password
+  monitored_conditions:
+    - cpu_total_load
+    - cpu_system_load
+    - memory_size
+    - memory_cached
+    - memory_real_usage
+    - memory_available_swap
+    - disk_name
+    - network_up
+    - volume_percentage_used
+    - volume_disk_temp_avg
+    - volume_disk_temp_max

@@ -1,0 +1,39 @@
+name: Home Floorplan
+image: /local/custom-lovelace/floorplan/rdc.svg
+stylesheet: /local/custom-lovelace/floorplan/floorplan.css
+warnings:
+pan_zoom:
+# hide_app_toolbar:
+date_format: DD-MMM-YYYY
+
+groups:
+  - name: Dark Sky Sensors
+    entities:
+      - sensor.weather_icon
+    image_template: '
+      var imageName = "";
+      switch (entity.state) {
+        case "clear-day":
+          imageName = "day";
+          break;
+        case "clear-night":
+          imageName = "night";
+          break;
+        case "partly-cloudy-day":
+          imageName = "cloudy-day-1";
+          break;
+        case "partly-cloudy-night":
+          imageName = "cloudy-night-1";
+          break;
+        case "cloudy":
+          imageName = "cloudy";
+          break;
+        case "rain":
+          imageName = "rainy-1";
+          break;
+        case "snow":
+          imageName = "snowy-1";
+          break;
+      }
+      return "/local/custom-/floorplan/images/weather/" + imageName + ".svg";
+      '

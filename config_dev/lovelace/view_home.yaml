@@ -99,8 +99,6 @@ cards:
               green: 0
               yellow: 45
               red: 85
-      - type: weather-forecast
-        entity: weather.maison
       - type: entities
         title: Eclairage
         entities:
@@ -113,6 +111,8 @@ cards:
           - entity: light.fibaro_system_fgd212_dimmer_2_level_12
   - type: vertical-stack
     cards:
+      - type: weather-forecast
+        entity: weather.maison
       - type: horizontal-stack
         cards:
           - type: sensor
@@ -153,28 +153,6 @@ cards:
             name: Entrée
             graph: line
             entity: sensor.philio_technology_corp_pst02_c_door_window_3_in_1_sensor_temperature
-      - type: horizontal-stack
-        cards:
-          - type: entities
-            title: Radiateur SDB
-            show_header_toggle: false
-            entities:
-              - entity: input_select.radiateur_sdb
-                name: Modes
-          - type: entities
-            title: Radiateur Bureau
-            show_header_toggle: false
-            entities:
-              - entity: input_select.radiateur_bureau
-                name: Modes
-      - type: horizontal-stack
-        cards:
-          - type: entities
-            title: Radiateur Chambre
-            show_header_toggle: false
-            entities:
-              - entity: input_select.radiateur_chambre
-                name: Modes
 
   - type: vertical-stack
     cards:

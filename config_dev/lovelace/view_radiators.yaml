@@ -1,0 +1,27 @@
+title: Radiators
+icon: mdi:radiator
+id: radiators
+path: radiators
+cards:
+  - type: vertical-stack
+    cards:
+      - type: entities
+        title: Radiateur SDB
+        show_header_toggle: false
+        entities:
+          - entity: input_select.radiateur_sdb
+            name: Modes
+      - type: entities
+        title: Radiateur Bureau
+        show_header_toggle: false
+        entities:
+          - entity: input_select.radiateur_bureau
+            name: Modes
+  - type: horizontal-stack
+    cards:
+      - type: entities
+        title: Radiateur Chambre
+        show_header_toggle: false
+        entities:
+          - entity: input_select.radiateur_chambre
+            name: Modes

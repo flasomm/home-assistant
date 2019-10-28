@@ -14,6 +14,7 @@ resources:
 
 views:
   - !include lovelace/view_home.yaml
+  - !include lovelace/view_radiators.yaml
   - !include lovelace/view_medias.yaml
   - !include lovelace/view_alarms.yaml
   - !include lovelace/view_system.yaml
