@@ -17,11 +17,25 @@ cards:
         entities:
           - entity: input_select.radiateur_bureau
             name: Modes
-  - type: horizontal-stack
+  - type: vertical-stack
     cards:
       - type: entities
         title: Radiateur Chambre
         show_header_toggle: false
         entities:
           - entity: input_select.radiateur_chambre
+            name: Modes
+      - type: entities
+        title: Radiateur Salon Gauche
+        show_header_toggle: false
+        entities:
+          - entity: input_select.radiateur_salon_gauche
+            name: Modes
+  - type: vertical-stack
+    cards:
+      - type: entities
+        title: Radiateur Salon Droite
+        show_header_toggle: false
+        entities:
+          - entity: input_select.radiateur_salon_droit
             name: Modes

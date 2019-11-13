@@ -1,28 +1,72 @@
-cuisine_lights:
+light.pdt_cuisine:
+  name: Plan de travail Cuisine
+  entities:
+    - switch.fibaro_system_fgs213_switch_switch_2
+light.cuisine:
+  name: Plafonnier Cuisine
+  entities:
+    - light.fibaro_system_fgd212_dimmer_2_level_10
+lights.cuisine:
   name: Lumières Cuisine
   entities:
     - light.fibaro_system_fgd212_dimmer_2_level_10
     - switch.fibaro_system_fgs213_switch_switch_2
-salon_lights:
+light.salon:
   name: Lumière Salon
   entities:
     - light.fibaro_system_fgd212_dimmer_2_level_8
-entree_lights:
+light.entree:
   name: Lumière Entrée
   entities:
     - light.fibaro_system_fgd212_dimmer_2_level_12
-mezzanine_lights:
+light.mezzanine:
   name: Lumière Mezzanine
   entities:
     - light.fibaro_system_fgd212_dimmer_2_level_4
-sdb_lights:
+light.sdb:
   name: Lumière Salle de Bain
   entities:
     - light.fibaro_system_fgd212_dimmer_2_level_2
-wc_lights:
+light.wc:
   name: Lumière WC
   entities:
     - light.fibaro_system_fgd212_dimmer_2_level_6
+sensor.mouvement_salon:
+  name: Capteur Mouvement Salon
+  entities:
+    - binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_3
+sensor.mouvement_cuisine:
+  name: Capteur Mouvement Cuisine
+  entities:
+    - binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_2
+sensor.mouvement_mezzanine:
+  name: Capteur Mouvement Mezzanine
+  entities:
+    - binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_4
+sensor.mouvement_sdb:
+  name: Capteur Mouvement SDB
+  entities:
+    - binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_5
+sensor.mouvement_wc:
+  name: Capteur Mouvement WC
+  entities:
+    - binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_6
+sensor.mouvement_bureau:
+  name: Capteur Mouvement Bureau
+  entities:
+    - binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor
+sensor.mouvement_chambre:
+  name: Capteur Mouvement Chambre
+  entities:
+    - binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_7
+sensor.detecteur_fumee:
+  name: Capteur Détecteur Fumée
+  entities:
+    - binary_sensor.fibaro_system_fgsd002_smoke_sensor_sensor
+sensor.porte_entree:
+  name: Capteur Porte Entrée
+  entities:
+    - binary_sensor.philio_technology_corp_pst02_c_door_window_3_in_1_sensor_sensor
 all_person:
   name: Toutes les personnes
   entities:

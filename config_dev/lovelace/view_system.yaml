@@ -3,70 +3,6 @@ icon: mdi:gauge
 id: system
 path: system
 cards:
-  - type: vertical-stack
-    cards:
-      - type: history-graph
-        title: 'Neufbox Router'
-        entities:
-          - entity: sensor.neufbox_router_bytes_received
-            name: Router Bytes Received
-          - entity: sensor.neufbox_router_bytes_sent
-            name: Router Bytes Send
-          - entity: sensor.neufbox_router_kbyte_sec_received
-            name: Router kbytes/sec Received
-          - entity: sensor.neufbox_router_kbyte_sec_sent
-            name: Router kbytes/sec Sent
-          - entity: sensor.neufbox_router_packets_received
-            name: Router Packets Received
-          - entity: sensor.neufbox_router_packets_sent
-            name: Router Packets Sent
-          - entity: sensor.neufbox_router_packets_sec_received
-            name: Router Packets/Sec Received
-          - entity: sensor.neufbox_router_packets_sec_sent
-            name: Router Packets/Sec Sent
-
-  - type: vertical-stack
-    cards:
-      - type: history-graph
-        title: Speedtest
-        entities:
-          - entity: sensor.speedtest_ping
-            name: Main Speedtest Ping
-          - entity: sensor.speedtest_download
-            name: Main Speedtest Download
-          - entity: sensor.speedtest_upload
-            name: Main Speedtest Upload
-
-  - type: vertical-stack
-    cards:
-      - type: history-graph
-        title: Synology Server
-        entities:
-          - entity: sensor.synology_dsm_cpu_load_system
-            name: CPU System Load
-          - entity: sensor.synology_dsm_cpu_load_total
-            name: CPU Total Load
-          - entity: sensor.synology_dsm_memory_size
-            name: Memory Size
-          - entity: sensor.synology_dsm_memory_usage_real
-            name: Memory Usage Real
-          - entity: sensor.synology_dsm_memory_available_swap
-            name: Memory Swap Available
-          - entity: sensor.synology_dsm_memory_cached
-            name: Memory Cached
-          - entity: sensor.synology_dsm_name_sda
-            name: Name Disk1
-          - entity: sensor.synology_dsm_name_sdb
-            name: Name Disk2
-          - entity: sensor.synology_dsm_maximum_disk_temp_volume_1
-            name: Max Disk Temprature Volume1
-          - entity: sensor.synology_dsm_average_disk_temp_volume_1
-            name: Average Disk Temprature Volume1
-          - entity: sensor.synology_dsm_network_up
-            name: Network Up
-          - entity: sensor.synology_dsm_volume_used_volume_1
-            name: Volume1 Volume Used
-
   - type: custom:vertical-stack-in-card
     title: Etats des Batteries
     cards:
@@ -98,3 +34,70 @@ cards:
           include:
             - attributes:
                 battery_level: "<=100"
+
+  - type: vertical-stack
+    cards:
+      - type: entities
+        show_header_toggle: false
+        title: Synology Server
+        entities:
+          - entity: sensor.synology_dsm_cpu_load_system
+            name: CPU System Load
+          - entity: sensor.synology_dsm_cpu_load_total
+            name: CPU Total Load
+          - entity: sensor.synology_dsm_memory_size
+            name: Memory Size
+          - entity: sensor.synology_dsm_memory_usage_real
+            name: Memory Usage Real
+          - entity: sensor.synology_dsm_memory_available_swap
+            name: Memory Swap Available
+          - entity: sensor.synology_dsm_memory_cached
+            name: Memory Cached
+          - entity: sensor.synology_dsm_name_sda
+            name: Name Disk1
+          - entity: sensor.synology_dsm_name_sdb
+            name: Name Disk2
+          - entity: sensor.synology_dsm_maximum_disk_temp_volume_1
+            name: Max Disk Temprature Volume1
+          - entity: sensor.synology_dsm_average_disk_temp_volume_1
+            name: Average Disk Temprature Volume1
+          - entity: sensor.synology_dsm_network_up
+            name: Network Up
+          - entity: sensor.synology_dsm_volume_used_volume_1
+            name: Volume1 Volume Used
+
+  - type: vertical-stack
+    cards:
+      - type: entities
+        show_header_toggle: false
+        title: Speedtest
+        entities:
+          - entity: sensor.speedtest_ping
+            name: Main Speedtest Ping
+          - entity: sensor.speedtest_download
+            name: Main Speedtest Download
+          - entity: sensor.speedtest_upload
+            name: Main Speedtest Upload
+
+  - type: vertical-stack
+    cards:
+      - type: history-graph
+        title: 'Neufbox Router'
+        entities:
+          - entity: sensor.neufbox_router_bytes_received
+            name: Router Bytes Received
+          - entity: sensor.neufbox_router_bytes_sent
+            name: Router Bytes Send
+          - entity: sensor.neufbox_router_kbyte_sec_received
+            name: Router kbytes/sec Received
+          - entity: sensor.neufbox_router_kbyte_sec_sent
+            name: Router kbytes/sec Sent
+          - entity: sensor.neufbox_router_packets_received
+            name: Router Packets Received
+          - entity: sensor.neufbox_router_packets_sent
+            name: Router Packets Sent
+          - entity: sensor.neufbox_router_packets_sec_received
+            name: Router Packets/Sec Received
+          - entity: sensor.neufbox_router_packets_sec_sent
+            name: Router Packets/Sec Sent
+

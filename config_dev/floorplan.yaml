@@ -1,39 +1,63 @@
 name: Home Floorplan
-image: /local/custom-lovelace/floorplan/rdc.svg
+image: /local/custom-lovelace/floorplan/floorplan.svg
 stylesheet: /local/custom-lovelace/floorplan/floorplan.css
 warnings:
-pan_zoom:
+# pan_zoom:
 # hide_app_toolbar:
 date_format: DD-MMM-YYYY
 
 groups:
-  - name: Dark Sky Sensors
+  - name: Lights
     entities:
-      - sensor.weather_icon
-    image_template: '
-      var imageName = "";
-      switch (entity.state) {
-        case "clear-day":
-          imageName = "day";
-          break;
-        case "clear-night":
-          imageName = "night";
-          break;
-        case "partly-cloudy-day":
-          imageName = "cloudy-day-1";
-          break;
-        case "partly-cloudy-night":
-          imageName = "cloudy-night-1";
-          break;
-        case "cloudy":
-          imageName = "cloudy";
-          break;
-        case "rain":
-          imageName = "rainy-1";
-          break;
-        case "snow":
-          imageName = "snowy-1";
-          break;
-      }
-      return "/local/custom-/floorplan/images/weather/" + imageName + ".svg";
-      '
+      - group.light_pdt_cuisine
+      - group.light_cuisine
+      - group.light_salon
+      - group.light_entree
+      - group.light_mezzanine
+      - group.light_wc
+      - group.light_sdb
+    states:
+      - state: 'on'
+        class: 'light-on'
+      - state: 'off'
+        class: 'light-off'
+    action:
+      service: toggle
+
+  - name: Sensors Temperature
+    entities:
+      - sensor.temperature_salon
+      - sensor.temperature_entree
+      - sensor.temperature_cuisine
+      - sensor.temperature_mezzanine
+      - sensor.temperature_sdb
+      - sensor.temperature_wc
+      - sensor.temperature_chambre
+      - sensor.temperature_bureau
+      - sensor.temperature_detecteur_fumee
+    text_template: '${entity.state ? entity.state : "unknown"}'
+
+  - name: Sensors Mouvement
+    entities:
+      - group.sensor_mouvement_salon
+      - group.sensor_mouvement_cuisine
+      - group.sensor_mouvement_mezzanine
+      - group.sensor_mouvement_sdb
+      - group.sensor_mouvement_wc
+      - group.sensor_mouvement_bureau
+      - group.sensor_mouvement_chambre
+      - group.sensor_porte_entree
+      - group.sensor_detecteur_fumee
+    text_template: '${entity.state ? entity.state : "unknown"}'
+
+  - name: Sensors Lumière
+    entities:
+      - sensor.lumiere_salon
+      - sensor.lumiere_cuisine
+      - sensor.lumiere_entree
+      - sensor.lumiere_mezzanine
+      - sensor.lumiere_sdb
+      - sensor.lumiere_wc
+      - sensor.lumiere_bureau
+      - sensor.lumiere_chambre
+    text_template: '${entity.state ? entity.state : "unknown"}'

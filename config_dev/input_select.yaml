@@ -28,3 +28,19 @@ radiateur_sdb:
     - Comfort -1
     - Comfort
   initial: Eco
+radiateur_salon_droit:
+  name: Mode Radiateur
+  options:
+    - Arret
+    - Hors-gel
+    - Eco
+    - Comfort
+  initial: Eco
+radiateur_salon_gauche:
+  name: Mode Radiateur
+  options:
+    - Arret
+    - Hors-gel
+    - Eco
+    - Comfort
+  initial: Eco

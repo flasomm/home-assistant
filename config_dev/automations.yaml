@@ -318,7 +318,7 @@
     service: light.turn_on
     data:
       entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_2
-      brightness: 100
+      brightness: 99
 - id: '2afb10ab507442bebd5fffcc01ec6efc'
   alias: '[Radiateur] SDB Comfort -1'
   initial_state: 'on'
@@ -330,7 +330,7 @@
     service: light.turn_on
     data:
       entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_2
-      brightness: 45
+      brightness: 50
 - id: '9890c8529a424a6190ee8ff8bb75003e'
   alias: '[Radiateur] SDB Comfort -2'
   initial_state: 'on'
@@ -342,7 +342,7 @@
     service: light.turn_on
     data:
       entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_2
-      brightness: 35
+      brightness: 40
 - id: '3c2e9f968e874a3a84eb75171b3a9bf7'
   alias: '[Radiateur] SDB Eco'
   initial_state: 'on'
@@ -354,7 +354,7 @@
     service: light.turn_on
     data:
       entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_2
-      brightness: 25
+      brightness: 30
 - id: '8b8dabda6fa94e75b89d6bb0d81a2cba'
   alias: '[Radiateur] SDB Hors-gel'
   initial_state: 'on'
@@ -366,7 +366,7 @@
     service: light.turn_on
     data:
       entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_2
-      brightness: 15
+      brightness: 20
 - id: '331695928c4e431eb74d305aae7a7bf2'
   alias: '[Radiateur] SDB Arret'
   initial_state: 'on'
@@ -378,3 +378,101 @@
     service: light.turn_off
     data:
       entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_2
+
+# Radiateur Salon Droit
+- id: '719a937cb6cf4bb3a9d276da644ac867'
+  alias: '[Radiateur] Salon Droit Comfort'
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: input_select.radiateur_salon_droit
+    to: 'Comfort'
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_4
+      brightness: 99
+- id: '465f61a50ac04c969dfd76f7953e4d1c'
+  alias: '[Radiateur] Salon Droit Eco'
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: input_select.radiateur_salon_droit
+    to: 'Eco'
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_4
+      brightness: 30
+- id: 'a765dd8ee0054e77a0b6c58ed60d7f54'
+  alias: '[Radiateur] Salon Droit Hors-gel'
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: input_select.radiateur_salon_droit
+    to: 'Hors-gel'
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_4
+      brightness: 20
+- id: '3d7de22df3f847e1bbdae3fbcfdece86'
+  alias: '[Radiateur] Salon Droit Arret'
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: input_select.radiateur_salon_droit
+    to: 'Arret'
+  action:
+    service: light.turn_off
+    data:
+      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_4
+
+# Radiateur Salon Gauche
+- id: 'b94f597dc59b47028703fd754c2d9493'
+  alias: '[Radiateur] Salon Gauche Comfort'
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: input_select.radiateur_salon_gauche
+    to: 'Comfort'
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_5
+      brightness: 99
+- id: '4671557bbbb8462b9bba71a199988042'
+  alias: '[Radiateur] Salon Gauche Eco'
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: input_select.radiateur_salon_gauche
+    to: 'Eco'
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_5
+      brightness: 30
+- id: '2f888957d56a408c80c49cf58ba17f20'
+  alias: '[Radiateur] Salon Gauche Hors-gel'
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: input_select.radiateur_salon_gauche
+    to: 'Hors-gel'
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_5
+      brightness: 20
+- id: 'f06d630534d84395a824a0d1a31907a8'
+  alias: '[Radiateur] Salon Gauche Arret'
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: input_select.radiateur_salon_gauche
+    to: 'Arret'
+  action:
+    service: light.turn_off
+    data:
+      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_5
