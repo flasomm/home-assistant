@@ -56,10 +56,22 @@ recorder:
 tts:
   - platform: google_translate
 
+# tv
 media_player:
   - platform: braviatv
     host: 192.168.1.90
 
+# plex
+plex:
+  host: 192.168.1.22
+  port: 32400
+  token: !secret plex_token
+  ssl: true
+  verify_ssl: true
+  media_player:
+    show_all_controls: true
+
+# speedtestdotnet
 speedtestdotnet:
   scan_interval:
     hours: 3
