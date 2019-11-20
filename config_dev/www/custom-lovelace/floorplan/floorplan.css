@@ -3,7 +3,7 @@
 svg, svg * {
   vector-effect: non-scaling-stroke !important;
   pointer-events: all !important;
-  background-color: #F2F8FF !important;
+  background-color: #2e2e2eff !important;
 }
 
 /* Hover over */
@@ -94,11 +94,11 @@ svg, svg * {
 /* Light */
 
 .light-off {
-  fill: #004182 !important;
+  fill: #BDBDBD !important;
 }
 
 .light-on {
-  fill: #FEC210 !important;
+  fill: #FEF256 !important;
 }
 
 /* Doorbell */

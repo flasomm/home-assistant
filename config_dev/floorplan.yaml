@@ -39,15 +39,15 @@ groups:
 
   - name: Sensors Mouvement
     entities:
-      - group.sensor_mouvement_salon
-      - group.sensor_mouvement_cuisine
-      - group.sensor_mouvement_mezzanine
-      - group.sensor_mouvement_sdb
-      - group.sensor_mouvement_wc
-      - group.sensor_mouvement_bureau
-      - group.sensor_mouvement_chambre
-      - group.sensor_porte_entree
-      - group.sensor_detecteur_fumee
+      - binary_sensor.mouvement_salon
+      - binary_sensor.mouvement_cuisine
+      - binary_sensor.mouvement_mezzanine
+      - binary_sensor.mouvement_sdb
+      - binary_sensor.mouvement_wc
+      - binary_sensor.mouvement_bureau
+      - binary_sensor.mouvement_chambre
+      - binary_sensor.porte_entree_ouverte
+      - binary_sensor.detecteur_fumee
     text_template: '${entity.state ? entity.state : "unknown"}'
 
   - name: Sensors Lumière
@@ -61,3 +61,8 @@ groups:
       - sensor.lumiere_bureau
       - sensor.lumiere_chambre
     text_template: '${entity.state ? entity.state : "unknown"}'
+
+  - name: Date/Time
+    entities:
+      - sensor.floorplan_full_date
+      - sensor.floorplan_time

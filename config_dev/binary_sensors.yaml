@@ -1,59 +1,88 @@
 - platform: template
   sensors:
     # Burglar sensors
-    bureau_burglar_alarm:
+    alarm_burglar_bureau:
       value_template: "{{ states('sensor.fibaro_system_fgms001_zw5_motion_sensor_burglar') | float ==  3 }}"
       friendly_name: '[Alarme] Capteur Bureau active ?'
-    cuisine_burglar_alarm:
+    alarm_burglar_cuisine:
       value_template: "{{ states('sensor.fibaro_system_fgms001_zw5_motion_sensor_burglar_2') | float ==  3 }}"
       friendly_name: '[Alarme] Capteur Cuisine active ?'
-    salon_burglar_alarm:
+    alarm_burglar_salon:
       value_template: "{{ states('sensor.fibaro_system_fgms001_zw5_motion_sensor_burglar_3') | float ==  3 }}"
       friendly_name: '[Alarme] Capteur Salon active ?'
-    mezzanine_burglar_alarm:
+    alarm_burglar_mezzanine:
       value_template: "{{ states('sensor.fibaro_system_fgms001_zw5_motion_sensor_burglar_4') | float ==  3 }}"
       friendly_name: '[Alarme] Capteur Mezzanine active ?'
-    sdb_burglar_alarm:
+    alarm_burglar_sdb:
       value_template: "{{ states('sensor.fibaro_system_fgms001_zw5_motion_sensor_burglar_5') | float ==  3 }}"
       friendly_name: '[Alarme] Capteur SDB active ?'
-    wc_burglar_alarm:
+    alarm_burglar_wc:
       value_template: "{{ states('sensor.fibaro_system_fgms001_zw5_motion_sensor_burglar_6') | float ==  3 }}"
       friendly_name: '[Alarme] Capteur WC active ?'
-    chambre_burglar_alarm:
+    alarm_burglar_chambre:
       value_template: "{{ states('sensor.fibaro_system_fgms001_zw5_motion_sensor_burglar_7') | float ==  3 }}"
       friendly_name: '[Alarme] Capteur Chambre active ?'
 
     # Mouvements sensors while away
-    bureau_mouvement_alarm:
+    alarm_mouvement_bureau:
       value_template: "{{ is_state('binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor', 'on')
         and is_state('device_tracker.marcel', 'not_home') }}"
       friendly_name: '[Alarme] Mouvement Chambre active while iam away ?'
-    cuisine_mouvement_alarm:
+    alarm_mouvement_cuisine:
       value_template: "{{ is_state('binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_2', 'on')
         and is_state('device_tracker.marcel', 'not_home') }}"
       friendly_name: '[Alarme] Mouvement Cuisine active while iam away ?'
-    salon_mouvement_alarm:
+    alarm_mouvement_salon:
       value_template: "{{ is_state('binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_3', 'on')
         and is_state('device_tracker.marcel', 'not_home') }}"
       friendly_name: '[Alarme] Mouvement Salon active while iam away ?'
-    mezzanine_mouvement_alarm:
+    alarm_mouvement_mezzanine:
       value_template: "{{ is_state('binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_4', 'on')
         and is_state('device_tracker.marcel', 'not_home') }}"
       friendly_name: '[Alarme] Mouvement Mezzanine active while iam away ?'
-    sdb_mouvement_alarm:
+    alarm_mouvement_sdb:
       value_template: "{{ is_state('binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_5', 'on')
         and is_state('device_tracker.marcel', 'not_home') }}"
       friendly_name: '[Alarme] Mouvement SDB active while iam away ?'
-    wc_mouvement_alarm:
+    alarm_mouvement_wc:
       value_template: "{{ is_state('binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_6', 'on')
         and is_state('device_tracker.marcel', 'not_home') }}"
       friendly_name: '[Alarme] Mouvement WC active while iam away ?'
-    chambre_mouvement_alarm:
+    alarm_mouvement_chambre:
       value_template: "{{ is_state('binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_7', 'on')
         and is_state('device_tracker.marcel', 'not_home') }}"
       friendly_name: '[Alarme] Mouvement Chambre active while iam away ?'
+
     # Mode nigth and holiday off
     night_holiday_mode_off:
-      value_template: "{{ is_state('input_boolean.vacation_mode', 'off') and is_state('input_boolean.night_mode',
-        'off') }}"
+      value_template: "{{ is_state('input_boolean.vacation_mode', 'off') and is_state('input_boolean.night_mode', 'off') }}"
       friendly_name: 'Is night and holiday mode off?'
+
+    # Rename binary_sensor
+    mouvement_salon:
+      value_template: '{{ states.binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_3.state }}'
+      friendly_name: 'Capteur Mouvement Salon'
+    mouvement_cuisine:
+      value_template: '{{ states.binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_2.state }}'
+      friendly_name: 'Capteur Mouvement Cuisine'
+    mouvement_mezzanine:
+      value_template: '{{ states.binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_4.state }}'
+      friendly_name: 'Capteur Mouvement Mezzanine'
+    mouvement_sdb:
+      value_template: '{{ states.binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_5.state }}'
+      friendly_name: 'Capteur Mouvement SDB'
+    mouvement_wc:
+      value_template: '{{ states.binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_6.state }}'
+      friendly_name: 'Capteur Mouvement WC'
+    mouvement_bureau:
+      value_template: '{{ states.binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor.state }}'
+      friendly_name: 'Capteur Mouvement Bureau'
+    mouvement_chambre:
+      value_template: '{{ states.binary_sensor.fibaro_system_fgsd002_smoke_sensor_sensor.state }}'
+      friendly_name: 'Capteur Mouvement Chambre'
+    detecteur_fumee:
+      value_template: '{{ states.binary_sensor.fibaro_system_fgsd002_smoke_sensor_sensor.state }}'
+      friendly_name: 'Capteur Détecteur Fumée'
+    porte_entree_ouverte:
+      value_template: '{{ states.binary_sensor.philio_technology_corp_pst02_c_door_window_3_in_1_sensor_sensor.state }}'
+      friendly_name: 'Capteur Porte Entrée'

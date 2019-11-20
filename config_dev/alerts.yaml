@@ -1,60 +1,60 @@
-alarme_bureau_burglar:
+alarm_burglar_bureau:
   name: "[Alarme] Capteur Bureau"
-  entity_id: binary_sensor.bureau_burglar_alarm
+  entity_id: binary_sensor.alarm_burglar_bureau
   state: 'on'
   repeat: 5
   title: "[Alarme] Capteur Bureau"
   message: Alarme capteur de Bureau active!
   notifiers:
     - all_notifiers
-alarme_cuisine_burglar:
+alarm_burglar_cuisine:
   name: "[Alarme] Capteur Cuisine"
-  entity_id: binary_sensor.cuisine_burglar_alarm
+  entity_id: binary_sensor.alarm_burglar_cuisine
   state: 'on'
   repeat: 5
   title: "[Alarme] Capteur Cuisine"
   message: Alarme capteur de Cuisine active!
   notifiers:
     - all_notifiers
-alarme_salon_burglar:
+alarm_burglar_salon:
   name: "[Alarme] Capteur Salon"
-  entity_id: binary_sensor.salon_burglar_alarm
+  entity_id: binary_sensor.alarm_burglar_salon
   state: 'on'
   repeat: 5
   title: "[Alarme] Capteur Salon"
   message: Alarme capteur de Salon active!
   notifiers:
     - all_notifiers
-alarme_mezzanine_burglar:
+alarm_burglar_mezzanine:
   name: "[Alarme] Capteur Mezzanine"
-  entity_id: binary_sensor.mezzanine_burglar_alarm
+  entity_id: binary_sensor.alarm_burglar_mezzanine
   state: 'on'
   repeat: 5
   title: "[Alarme] Capteur Mezzanine"
   message: Alarme capteur de Mezzanine active!
   notifiers:
     - all_notifiers
-alarme_sdb_burglar:
+alarm_burglar_sdb:
   name: "[Alarme] Capteur SDB"
-  entity_id: binary_sensor.sdb_burglar_alarm
+  entity_id: binary_sensor.alarm_burglar_sdb
   state: 'on'
   repeat: 5
   title: "[Alarme] Capteur SDB"
   message: Alarme capteur de SDB active!
   notifiers:
     - all_notifiers
-alarme_wc_burglar:
+alarm_burglar_wc:
   name: "[Alarme] Capteur WC"
-  entity_id: binary_sensor.wc_burglar_alarm
+  entity_id: binary_sensor.alarm_burglar_wc
   state: 'on'
   repeat: 5
   title: "[Alarme] Capteur WC"
   message: Alarme capteur de WC active!
   notifiers:
     - all_notifiers
-alarme_chambre_burglar:
+alarm_burglar_chambre:
   name: "[Alarme] Capteur Chambre"
-  entity_id: binary_sensor.chambre_burglar_alarm
+  entity_id: binary_sensor.alarm_burglar_chambre
   state: 'on'
   skip_first: true
   repeat: 5
@@ -62,9 +62,9 @@ alarme_chambre_burglar:
   message: Alarme capteur de Chambre active!
   notifiers:
     - all_notifiers
-alarme_bureau_mouvement:
+alarm_mouvement_bureau:
   name: "[Alarme] Mouvements détectés Bureau"
-  entity_id: binary_sensor.bureau_mouvement_alarm
+  entity_id: binary_sensor.alarm_mouvement_bureau
   state: 'on'
   skip_first: true
   repeat: 5
@@ -72,9 +72,9 @@ alarme_bureau_mouvement:
   message: Alarme Mouvements détectés Bureau!
   notifiers:
     - all_notifiers
-alarme_cuisine_mouvement:
+alarm_mouvement_cuisine:
   name: "[Alarme] Mouvements détectés Cuisine"
-  entity_id: binary_sensor.cuisine_mouvement_alarm
+  entity_id: binary_sensor.alarm_mouvement_cuisine
   state: 'on'
   skip_first: true
   repeat: 5
@@ -82,9 +82,9 @@ alarme_cuisine_mouvement:
   message: Alarme Mouvements détectés Cuisine!
   notifiers:
     - all_notifiers
-alarme_salon_mouvement:
+alarm_mouvement_salon:
   name: "[Alarme] Mouvements détectés Salon"
-  entity_id: binary_sensor.salon_mouvement_alarm
+  entity_id: binary_sensor.alarm_mouvement_salon
   state: 'on'
   skip_first: true
   repeat: 5
@@ -92,9 +92,9 @@ alarme_salon_mouvement:
   message: Alarme Mouvements détectés Salon!
   notifiers:
     - all_notifiers
-alarme_mezzanine_mouvement:
+alarm_mouvement_mezzanine:
   name: "[Alarme] Mouvements détectés Mezzanine"
-  entity_id: binary_sensor.mezzanine_mouvement_alarm
+  entity_id: binary_sensor.alarm_mouvement_mezzanine
   state: 'on'
   skip_first: true
   repeat: 5
@@ -102,9 +102,9 @@ alarme_mezzanine_mouvement:
   message: Alarme Mouvements détectés Mezzanine!
   notifiers:
     - all_notifiers
-alarme_sdb_mouvement:
+alarm_mouvement_sdb:
   name: "[Alarme] Mouvements détectés SDB"
-  entity_id: binary_sensor.sdb_mouvement_alarm
+  entity_id: binary_sensor.alarm_mouvement_sdb
   state: 'on'
   skip_first: true
   repeat: 5
@@ -112,9 +112,9 @@ alarme_sdb_mouvement:
   message: Alarme Mouvements détectés SDB!
   notifiers:
     - all_notifiers
-alarme_wc_mouvement:
+alarm_mouvement_wc:
   name: "[Alarme] Mouvements détectés WC"
-  entity_id: binary_sensor.wc_mouvement_alarm
+  entity_id: binary_sensor.alarm_mouvement_wc
   state: 'on'
   skip_first: true
   repeat: 5
@@ -122,9 +122,9 @@ alarme_wc_mouvement:
   message: Alarme Mouvements détectés WC!
   notifiers:
     - all_notifiers
-alarme_chambre_mouvement:
+alarm_mouvement_chambre:
   name: "[Alarme] Mouvements détectés Chambre"
-  entity_id: binary_sensor.chambre_mouvement_alarm
+  entity_id: binary_sensor.alarm_mouvement_chambre
   state: 'on'
   skip_first: true
   repeat: 5

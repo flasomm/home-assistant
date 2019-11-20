@@ -21,57 +21,63 @@
     temperature_salon:
       friendly_name: Capteur Température Salon
       value_template: '{{ states.sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_3.state }}'
-    lumiere_salon:
-      friendly_name: Capteur Lumière Salon
-      value_template: '{{ states.sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_3.state }}'
     temperature_cuisine:
       friendly_name: Capteur Température Cuisine
       value_template: '{{ states.sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_2.state }}'
-    lumiere_cuisine:
-      friendly_name: Capteur Lumière Cuisine
-      value_template: '{{ states.sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_2.state }}'
     temperature_entree:
       friendly_name: Capteur Température Entree
       value_template: '{{ states.sensor.philio_technology_corp_pst02_c_door_window_3_in_1_sensor_temperature.state }}'
-    porte_entree:
-      friendly_name: Capteur Porte Entrée
-      value_template: '{{ states.binary_sensor.philio_technology_corp_pst02_c_door_window_3_in_1_sensor_sensor.state }}'
-    lumiere_entree:
-      friendly_name: Capteur Lumière Porte Entrée
-      value_template: '{{ states.sensor.philio_technology_corp_pst02_c_door_window_3_in_1_sensor_luminance.state }}'
     temperature_mezzanine:
       friendly_name: Capteur Température Mezzanine
       value_template: '{{ states.sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_4.state }}'
-    lumiere_mezzanine:
-      friendly_name: Capteur Lumière Mezzanine
-      value_template: '{{ states.sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_4.state }}'
     temperature_sdb:
       friendly_name: Capteur Température SDB
       value_template: '{{ states.sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_5.state }}'
-    lumiere_sdb:
-      friendly_name: Capteur Lumière SDB
-      value_template: '{{ states.sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_5.state }}'
     temperature_wc:
       friendly_name: Capteur Température WC
       value_template: '{{ states.sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_6.state }}'
-    lumiere_wc:
-      friendly_name: Capteur Lumière WC
-      value_template: '{{ states.sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_6.state }}'
-    lumiere_bureau:
-      friendly_name: Capteur Lumière Bureau
-      value_template: '{{ states.sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance.state }}'
     temperature_bureau:
       friendly_name: Capteur Température Bureau
       value_template: '{{ states.sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature.state }}'
     temperature_chambre:
       friendly_name: Capteur Température Chambre
       value_template: '{{ states.sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_7.state }}'
-    lumiere_chambre:
-      friendly_name: Capteur Lumière Chambre
-      value_template: '{{ states.sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_7.state }}'
     temperature_detecteur_fumee:
       friendly_name: Capteur Température Détecteur Fumée
       value_template: '{{ states.sensor.fibaro_system_fgsd002_smoke_sensor_temperature.state }}'
+    lumiere_salon:
+      friendly_name: Capteur Lumière Salon
+      value_template: '{{ states.sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_3.state }}'
+    lumiere_cuisine:
+      friendly_name: Capteur Lumière Cuisine
+      value_template: '{{ states.sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_2.state }}'
+    lumiere_entree:
+      friendly_name: Capteur Lumière Porte Entrée
+      value_template: '{{ states.sensor.philio_technology_corp_pst02_c_door_window_3_in_1_sensor_luminance.state }}'
+    lumiere_mezzanine:
+      friendly_name: Capteur Lumière Mezzanine
+      value_template: '{{ states.sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_4.state }}'
+    lumiere_sdb:
+      friendly_name: Capteur Lumière SDB
+      value_template: '{{ states.sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_5.state }}'
+    lumiere_wc:
+      friendly_name: Capteur Lumière WC
+      value_template: '{{ states.sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_6.state }}'
+    lumiere_bureau:
+      friendly_name: Capteur Lumière Bureau
+      value_template: '{{ states.sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance.state }}'
+    lumiere_chambre:
+      friendly_name: Capteur Lumière Chambre
+      value_template: '{{ states.sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_7.state }}'
+    floorplan_date:
+      friendly_name: Date
+      value_template: '{{now().strftime("%d")}}/{{now().strftime("%m")}}/{{now().strftime("%Y")}}'
+    floorplan_full_date:
+      friendly_name: Full Date
+      value_template: '{{now().strftime("%A")}} {{now().strftime("%d")}} {{now().strftime("%B")}} {{now().strftime("%Y")}}'
+    floorplan_time:
+      friendly_name: Time
+      value_template: '{{now().strftime("%-I")}}:{{now().strftime("%M")}} {{now().strftime("%p")}}'
 
 - platform: synologydsm
   host: 192.168.1.22
