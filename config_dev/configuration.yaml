@@ -63,7 +63,7 @@ media_player:
 
 # plex
 plex:
-  host: 192.168.1.22
+  host: 192.168.1.95
   port: 32400
   token: !secret plex_token
   ssl: true
