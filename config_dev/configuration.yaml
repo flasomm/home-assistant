@@ -2,8 +2,8 @@ homeassistant:
   # Name of the location where Home Assistant is running
   name: Maison
   # Location required to calculate the time the sun rises and sets
-  latitude: 48.812534
-  longitude: 2.359192
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
   elevation: 62
   # metric for Metric, imperial for Imperial
   unit_system: metric
@@ -67,7 +67,7 @@ plex:
   port: 32400
   token: !secret plex_token
   ssl: true
-  verify_ssl: true
+  verify_ssl: false
   media_player:
     show_all_controls: true
 
@@ -83,10 +83,10 @@ speedtestdotnet:
 logger:
   default: info
   logs:
-    homeassistant.core: debug
-    nest.nest: debug
-    asyncio: debug
-    homeassistant.components.cloud.iot: debug
+    homeassistant.core: info
+    nest.nest: info
+    asyncio: info
+    homeassistant.components.cloud.iot: info
 
 device_tracker:
   - platform: arpscan_tracker
