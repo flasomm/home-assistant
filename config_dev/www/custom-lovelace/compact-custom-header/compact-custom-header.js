@@ -1,5 +1,5 @@
 console.info(
-  `%c COMPACT-CUSTOM-HEADER \n%c     Version 1.4.2     `,
+  `%c COMPACT-CUSTOM-HEADER \n%c     Version 1.4.9     `,
   "color: orange; font-weight: bold; background: black",
   "color: white; font-weight: bold; background: dimgray"
 );
@@ -50,6 +50,7 @@ class CompactCustomHeader {
     this.defaultConfig = {
       header: true,
       disable: false,
+      yaml_editor: false,
       menu: "show",
       voice: "show",
       notifications: "show",
@@ -116,10 +117,7 @@ class CompactCustomHeader {
       this.hideMenuItems();
       this.styleHeader(tabContainer, tabs);
       this.styleButtons(tabs, tabContainer);
-      if (this.firstRun) {
-        this.sidebarMod();
-        this.conditionalStyling(tabs, this.header);
-      }
+      if (this.firstRun) this.sidebarMod();
       this.hideTabs(tabContainer, tabs);
       for (let button in this.buttons) {
         if (this.cchConfig[button] == "clock") this.insertClock(button);
@@ -262,7 +260,7 @@ class CompactCustomHeader {
         } else if (target.id == "view" && addedNodes.length) {
           // Navigating to new tab/view.
           this.run();
-          this.scrollTabIconIntoView();
+          if (tabContainer) this.scrollTabIconIntoView();
         }
       });
     };
@@ -279,7 +277,7 @@ class CompactCustomHeader {
       window.hassConnection.then(({ conn }) => {
         conn.socket.onmessage = () => {
           if (this.cchConfig.conditional_styles && !this.editMode) {
-            conditionalStyling(tabs, this.header);
+            this.conditionalStyling(tabs, this.header);
           }
         };
       });
@@ -291,7 +289,9 @@ class CompactCustomHeader {
     buttons.options = this.root.querySelector("paper-menu-button");
     if (!this.editMode) {
       buttons.menu = this.root.querySelector("ha-menu-button");
-      buttons.voice = this.root.querySelector("ha-start-voice-button");
+      buttons.voice =
+        this.root.querySelector("ha-start-voice-button") ||
+        this.root.querySelector('[icon="hass:microphone"]');
       if (!this.newSidebar) {
         buttons.notifications = this.root.querySelector(
           "hui-notifications-button"
@@ -315,6 +315,7 @@ class CompactCustomHeader {
     let marginRight = 0;
     let marginLeft = 15;
     for (const button in this.buttons) {
+      if (!this.buttons[button]) continue;
       let paperIconButton =
         this.buttons[button].querySelector("paper-icon-button") ||
         this.buttons[button].shadowRoot.querySelector("paper-icon-button");
@@ -394,7 +395,11 @@ class CompactCustomHeader {
   }
 
   insertEditMenu(tabs, disabled) {
-    if (this.buttons.options && this.editMode) {
+    if (
+      this.buttons.options &&
+      (this.editMode ||
+        (this.lovelace.mode == "yaml" && this.cchConfig.yaml_editor))
+    ) {
       // If any tabs are hidden, add "show all tabs" option.
       if (this.cchConfig.hide_tabs && !this.cchConfig.edit_mode_show_tabs) {
         let show_tabs = document.createElement("paper-item");
@@ -431,7 +436,7 @@ class CompactCustomHeader {
     });
     if (this.cchConfig.tab_css) {
       for (let [key, value] of Object.entries(this.cchConfig.tab_css)) {
-        key = getViewIndex(key);
+        key = this.getViewIndex(key);
         value = value.replace(/: /g, ":").replace(/; /g, ";");
         let css = tabs[key].style.cssText
           .replace(/: /g, ":")
@@ -527,6 +532,7 @@ class CompactCustomHeader {
       this.view.style.paddingTop = "48.5px";
       this.view.style.boxSizing = "border-box";
       this.header.style.background = this.prevColor.background;
+      this.conditionalStyling(tabs, this.header);
       this.header.querySelector("app-toolbar").style.background = "transparent";
       if (
         this.frontendVersion >= 20190911 &&
@@ -542,7 +548,7 @@ class CompactCustomHeader {
           ${this.cchConfig.view_css ? this.cchConfig.view_css : ""}
         }
         hui-panel-view {
-          margin-top: -48.5px;
+          margin-top: -52px;
           padding-top: 52px;
           min-height: calc(100vh - 52px);
           ${this.cchConfig.view_css ? this.cchConfig.view_css : ""}
@@ -623,7 +629,7 @@ class CompactCustomHeader {
     // Add custom css.
     if (this.cchConfig.tab_css) {
       for (let [key, value] of Object.entries(this.cchConfig.tab_css)) {
-        key = getViewIndex(key);
+        key = this.getViewIndex(key);
         if (tabs[key]) tabs[key].style.cssText += value;
       }
     }
@@ -698,7 +704,12 @@ class CompactCustomHeader {
         ${
           button == "menu"
             ? `padding: 8px 0; margin-bottom:5px; ${topMarginMenu}`
-            : "padding: 4px 0;"
+            : "padding: 8px;"
+        }
+        ${
+          button == "voice" && this.cchConfig["voice"] == "clock"
+            ? "width: 100px; padding:4px;"
+            : ""
         }
         ${button == "menu" ? "" : topMargin}
         ${button == "options" ? "margin-right:-5px;" : ""}
@@ -734,13 +745,13 @@ class CompactCustomHeader {
         if (!menu_items.querySelector(`#${id}`)) {
           const wrapper = document.createElement("paper-item");
           wrapper.setAttribute("id", id);
-          wrapper.innerText = getTranslation(button);
+          wrapper.innerText = this.getTranslation(button);
           wrapper.appendChild(this.buttons[button]);
           wrapper.addEventListener("click", () => {
             paperIconButton.click();
           });
           paperIconButton.style.pointerEvents = "none";
-          insertMenuItem(menu_items, wrapper);
+          this.insertMenuItem(menu_items, wrapper);
           if (button == "notifications" && !this.newSidebar) {
             let style = document.createElement("style");
             style.innerHTML = `
@@ -797,7 +808,7 @@ class CompactCustomHeader {
       this.buttons.notifications.style.color =
         "var(--cch-button-color-notifications)";
     }
-    this.buttons.voice.style.color = "var(--cch-button-color-voice)";
+    if (this.buttons.voice) this.buttons.voice.style.color = "var(--cch-button-color-voice)";
     this.buttons.options.style.color = "var(--cch-button-color-options)";
     if (this.cchConfig.all_buttons_color) {
       this.root.querySelector("app-toolbar").style.color =
@@ -965,7 +976,7 @@ class CompactCustomHeader {
     // Set the tab config source.
     if (!hidden_tabs && shown_tabs) {
       let all_tabs = [];
-      shown_tabs = buildRanges(shown_tabs);
+      shown_tabs = this.buildRanges(shown_tabs);
       for (let i = 0; i < tabs.length; i++) all_tabs.push(i);
       // Invert shown_tabs to hidden_tabs.
       hidden_tabs = all_tabs.filter(el => !shown_tabs.includes(el));
@@ -1006,10 +1017,12 @@ class CompactCustomHeader {
   }
 
   insertClock(button) {
+    if (!this.buttons[button]) return;
     const clock_button = this.buttons[button].querySelector("paper-icon-button")
       ? this.buttons[button]
       : this.buttons[button].shadowRoot;
-    const clockIcon = clock_button.querySelector("paper-icon-button");
+    const clockIcon =
+      clock_button.querySelector("paper-icon-button") || this.buttons[button];
     const clockIronIcon =
       clockIcon.querySelector("iron-icon") ||
       clockIcon.shadowRoot.querySelector("iron-icon");
@@ -1171,7 +1184,7 @@ class CompactCustomHeader {
       if (template) {
         if (!template.length) template = [template];
         template.forEach(template => {
-          templates(template, tabs, _hass, this.header);
+          this.templates(template, tabs, _hass, this.header);
         });
       } else if (condition) {
         let entity = styling[i].entity;
@@ -1198,8 +1211,8 @@ class CompactCustomHeader {
 
         let tabIndex = styling[i].tab ? Object.keys(styling[i].tab)[0] : null;
         let tabCondition = styling[i].tab ? styling[i].tab[tabIndex] : null;
-        let tabElem = tabs[getViewIndex(tabIndex)];
-        let tabkey = `tab_${getViewIndex(tabIndex)}`;
+        let tabElem = tabs[this.getViewIndex(tabIndex)];
+        let tabkey = `tab_${this.getViewIndex(tabIndex)}`;
         let button = styling[i].button
           ? Object.keys(styling[i].button)[0]
           : null;
@@ -1316,18 +1329,18 @@ class CompactCustomHeader {
           let tempCond = template[condition][tab];
           if (!tempCond.length) tempCond = [tempCond];
           tempCond.forEach(templateObj => {
-            let tabIndex = getViewIndex(Object.keys(template[condition]));
+            let tabIndex = this.getViewIndex(Object.keys(template[condition]));
             let styleTarget = Object.keys(templateObj);
             let tabTemplate = templateObj[styleTarget];
             let tabElement = tabs[tabIndex];
             if (styleTarget == "icon") {
               tabElement
                 .querySelector("ha-icon")
-                .setAttribute("icon", templateEval(tabTemplate, states));
+                .setAttribute("icon", this.templateEval(tabTemplate, states));
             } else if (styleTarget == "color") {
-              tabElement.style.color = templateEval(tabTemplate, states);
+              tabElement.style.color = this.templateEval(tabTemplate, states);
             } else if (styleTarget == "display") {
-              templateEval(tabTemplate, states) == "show"
+              this.templateEval(tabTemplate, states) == "show"
                 ? (tabElement.style.display = "")
                 : (tabElement.style.display = "none");
             }
@@ -1347,21 +1360,24 @@ class CompactCustomHeader {
               ? buttonElem.querySelector("paper-icon-button")
               : buttonElem.shadowRoot.querySelector("paper-icon-button");
             if (styleTarget == "icon") {
-              iconTarget.setAttribute("icon", templateEval(tempCond, states));
+              iconTarget.setAttribute(
+                "icon",
+                this.templateEval(tempCond, states)
+              );
             } else if (styleTarget == "color") {
               let tar =
                 iconTarget.querySelector("iron-icon") ||
                 iconTarget.shadowRoot.querySelector("iron-icon");
-              tar.style.color = templateEval(tempCond, states);
+              tar.style.color = this.templateEval(tempCond, states);
             } else if (styleTarget == "display") {
-              templateEval(tempCond, states) == "show"
+              this.templateEval(tempCond, states) == "show"
                 ? (buttonElem.style.display = "")
                 : (buttonElem.style.display = "none");
             }
           });
         }
       } else if (condition == "background") {
-        style.background = templateEval(template[condition], states);
+        style.background = this.templateEval(template[condition], states);
       }
     }
   }
@@ -1475,6 +1491,7 @@ class CompactCustomHeader {
   swipeNavigation(tabs, tabContainer) {
     // To make it easier to update lovelace-swipe-navigation
     // keep this as close to the standalone lovelace addon as possible.
+    if (!tabContainer) return;
     let swipe_amount = this.cchConfig.swipe_amount || 15;
     let swipe_groups = this.cchConfig.swipe_groups;
     let animate = this.cchConfig.swipe_animate || "none";
@@ -1949,23 +1966,32 @@ class CompactCustomHeaderEditor extends cch.LitElement {
       }
     }
     let newConfig = { ...this._lovelace.config, ...{ cch: this._config } };
-    try {
-      this._lovelace.saveConfig(newConfig).then(() => {
-        location.reload(true);
-      });
-    } catch (e) {
-      alert(`Save failed: ${e}`);
+    if (cch.lovelace.mode == "storage") {
+      try {
+        this._lovelace.saveConfig(newConfig).then(() => {
+          window.location.href = window.location.href;
+        });
+      } catch (e) {
+        alert(`Save failed: ${e}`);
+      }
+    } else {
+      window.prompt(
+        "Copy to clipboard: Ctrl+C, Enter\n" +
+          "This option is experimental, check the copied config and backup.",
+        this.obj2yaml({ cch: newConfig.cch })
+      );
     }
   }
 
   get _save_button() {
+    let text = cch.lovelace.mode == "storage" ? "Save and Reload" : "Copy YAML";
     return this._mwc_button
       ? this.html`
-          <mwc-button raised @click="${this._save}">Save and Reload</mwc-button>
+          <mwc-button raised @click="${this._save}">${text}</mwc-button>
         `
       : this.html`
           <paper-button raised @click="${this._save}"
-            >Save and Reload</paper-button
+            >${text}</paper-button
           >
         `;
   }
@@ -2030,6 +2056,105 @@ class CompactCustomHeaderEditor extends cch.LitElement {
       result[key] = this.deepcopy(value[key]);
     });
     return result;
+  }
+
+  obj2yaml(obj) {
+    if (typeof obj == "string") obj = JSON.parse(obj);
+    const ret = [];
+    convert(obj, ret);
+    return ret.join("\n");
+    function getType(obj) {
+      if (obj instanceof Array) {
+        return "array";
+      } else if (typeof obj == "string") {
+        return "string";
+      } else if (typeof obj == "boolean") {
+        return "boolean";
+      } else if (typeof obj == "number") {
+        return "number";
+      } else if (typeof obj == "undefined" || obj === null) {
+        return "null";
+      } else {
+        return "hash";
+      }
+    }
+    function convert(obj, ret) {
+      const type = getType(obj);
+      switch (getType(obj)) {
+        case "array":
+          convertArray(obj, ret);
+          break;
+        case "hash":
+          convertHash(obj, ret);
+          break;
+        case "string":
+          convertString(obj, ret);
+          break;
+        case "null":
+          ret.push("null");
+          break;
+        case "number":
+          ret.push(obj.toString());
+          break;
+        case "boolean":
+          ret.push(obj ? "true" : "false");
+          break;
+      }
+    }
+    function convertArray(obj, ret) {
+      if (obj.length === 0) ret.push("[]");
+      for (let i = 0; i < obj.length; i++) {
+        const ele = obj[i];
+        const recurse = [];
+        convert(ele, recurse);
+        for (let j = 0; j < recurse.length; j++) {
+          ret.push((j == 0 ? "- " : "  ") + recurse[j]);
+        }
+      }
+    }
+    function convertHash(obj, ret) {
+      for (const k in obj) {
+        const recurse = [];
+        if (obj.hasOwnProperty(k)) {
+          const ele = obj[k];
+          convert(ele, recurse);
+          const type = getType(ele);
+          if (
+            type == "string" ||
+            type == "null" ||
+            type == "number" ||
+            type == "boolean"
+          ) {
+            ret.push(`${k}: ${recurse[0]}`);
+          } else {
+            ret.push(`${k}: `);
+            for (let i = 0; i < recurse.length; i++) {
+              ret.push(`  ${recurse[i]}`);
+            }
+          }
+        }
+      }
+    }
+    function convertString(obj, ret) {
+      if ((obj.includes("'") && obj.includes('"')) || obj.length > 45) {
+        if (obj.includes(";")) {
+          obj = obj.includes("; ") ? obj.split("; ") : obj.split(";");
+          obj[0] = `>\n            ${obj[0]}`;
+          if (obj[obj.length - 1].trim() == "") obj.pop();
+          obj = obj.join(";\n            ");
+          obj = obj.replace(/\n$/, "");
+          ret.push(obj);
+        } else {
+          ret.push(`>\n            ${obj}`);
+        }
+      } else if (obj.includes('"')) {
+        obj = obj.replace(/\n$/, "");
+        ret.push(`'${obj}'`);
+      } else {
+        obj = obj.replace(/\n$/, "");
+        ret.push(`"${obj}"`);
+      }
+    }
   }
 
   renderStyle() {
@@ -2141,7 +2266,7 @@ class CchConfigEditor extends cch.LitElement {
         !this.exception
           ? this.html`
             <h1 style="margin-top:-20px;margin-bottom:0;" class="underline">
-              Compact Custom Header &nbsp;₁.₄.₂
+              Compact Custom Header &nbsp;₁.₄.₉
             </h1>
             <h4
               style="margin-top:-5px;padding-top:10px;font-size:12pt;"

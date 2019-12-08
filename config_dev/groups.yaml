@@ -1,36 +1,36 @@
 light.pdt_cuisine:
   name: Plan de travail Cuisine
   entities:
-    - switch.fibaro_system_fgs213_switch_switch_2
+    - switch.lumiere_cuisine_pdt_switch_2
 light.cuisine:
   name: Plafonnier Cuisine
   entities:
-    - light.fibaro_system_fgd212_dimmer_2_level_10
+    - light.lumiere_cuisine_level_11
 lights.cuisine:
   name: Lumières Cuisine
   entities:
-    - light.fibaro_system_fgd212_dimmer_2_level_10
-    - switch.fibaro_system_fgs213_switch_switch_2
+    - light.lumiere_cuisine_level_11
+    - switch.lumiere_cuisine_pdt_switch_2
 light.salon:
   name: Lumière Salon
   entities:
-    - light.fibaro_system_fgd212_dimmer_2_level_8
+    - light.lumiere_salon_level_10
 light.entree:
   name: Lumière Entrée
   entities:
-    - light.fibaro_system_fgd212_dimmer_2_level_12
+    - light.lumiere_entree_level_12
 light.mezzanine:
   name: Lumière Mezzanine
   entities:
-    - light.fibaro_system_fgd212_dimmer_2_level_4
+    - light.lumiere_mezzanine_level_8
 light.sdb:
   name: Lumière Salle de Bain
   entities:
-    - light.fibaro_system_fgd212_dimmer_2_level_2
+    - light.lumiere_sdb_level_7
 light.wc:
   name: Lumière WC
   entities:
-    - light.fibaro_system_fgd212_dimmer_2_level_6
+    - light.lumiere_wc_level_9
 all_person:
   name: Toutes les personnes
   entities:

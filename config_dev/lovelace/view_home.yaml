@@ -102,13 +102,13 @@ cards:
       - type: entities
         title: Eclairage
         entities:
-          - entity: light.fibaro_system_fgd212_dimmer_2_level_2
-          - entity: light.fibaro_system_fgd212_dimmer_2_level_4
-          - entity: light.fibaro_system_fgd212_dimmer_2_level_6
-          - entity: light.fibaro_system_fgd212_dimmer_2_level_8
-          - entity: light.fibaro_system_fgd212_dimmer_2_level_10
-          - entity: switch.fibaro_system_fgs213_switch_switch_2
-          - entity: light.fibaro_system_fgd212_dimmer_2_level_12
+          - entity: light.lumiere_cuisine_level_11
+          - entity: switch.lumiere_cuisine_pdt_switch_2
+          - entity: light.lumiere_entree_level_12
+          - entity: light.lumiere_mezzanine_level_8
+          - entity: light.lumiere_salon_level_10
+          - entity: light.lumiere_sdb_level_7
+          - entity: light.lumiere_wc_level_9
   - type: vertical-stack
     cards:
       - type: weather-forecast
@@ -118,37 +118,37 @@ cards:
           - type: sensor
             name: Bureau
             graph: line
-            entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature
+            entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_6
           - type: sensor
             name: Cuisine
             graph: line
-            entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_2
+            entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_7
       - type: horizontal-stack
         cards:
           - type: sensor
             name: Salon
             graph: line
-            entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_3
+            entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_5
           - type: sensor
             name: Mezzanine
             graph: line
-            entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_4
+            entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_3
       - type: horizontal-stack
         cards:
           - type: sensor
             name: SDB
             graph: line
-            entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_5
+            entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_2
           - type: sensor
             name: WC
             graph: line
-            entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_6
+            entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature
       - type: horizontal-stack
         cards:
           - type: sensor
             name: Chambre
             graph: line
-            entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_7
+            entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_temperature_4
           - type: sensor
             name: Entrée
             graph: line
@@ -161,7 +161,7 @@ cards:
           - type: glance
             title: Detec. de Fumée
             entities:
-              - entity: sensor.fibaro_system_fgsd002_smoke_sensor_temperature
+              - entity: sensor.detecteur_de_fumee_temperature
                 name: Température
               - entity: binary_sensor.fibaro_system_fgsd002_smoke_sensor_sensor
                 name: Alarm
@@ -177,12 +177,44 @@ cards:
           - type: glance
             title: Mezzanine
             entities:
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_3
+                name: Lumière
+              - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_3
+                name: Mouvement
+          - type: glance
+            title: SDB
+            entities:
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_2
+                name: Lumière
+              - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_2
+                name: Mouvement
+      - type: horizontal-stack
+        cards:
+          - type: glance
+            title: WC
+            entities:
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance
+                name: Lumière
+              - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor
+                name: Mouvement
+          - type: glance
+            title: Bureau
+            entities:
+              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_6
+                name: Lumière
+              - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_6
+                name: Mouvement
+      - type: horizontal-stack
+        cards:
+          - type: glance
+            title: Chambre
+            entities:
               - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_4
                 name: Lumière
               - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_4
                 name: Mouvement
           - type: glance
-            title: SDB
+            title: Salon
             entities:
               - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_5
                 name: Lumière
@@ -191,41 +223,9 @@ cards:
       - type: horizontal-stack
         cards:
           - type: glance
-            title: WC
-            entities:
-              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_6
-                name: Lumière
-              - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_6
-                name: Mouvement
-          - type: glance
-            title: Bureau
-            entities:
-              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance
-                name: Lumière
-              - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor
-                name: Mouvement
-      - type: horizontal-stack
-        cards:
-          - type: glance
-            title: Chambre
+            title: Cuisine
             entities:
               - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_7
                 name: Lumière
               - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_7
-                name: Mouvement
-          - type: glance
-            title: Salon
-            entities:
-              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_3
-                name: Lumière
-              - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_3
-                name: Mouvement
-      - type: horizontal-stack
-        cards:
-          - type: glance
-            title: Cuisine
-            entities:
-              - entity: sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_2
-                name: Lumière
-              - entity: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_2
                 name: Mouvement

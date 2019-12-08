@@ -2,24 +2,24 @@
 - id: '1570376416326'
   alias: '[Presence] Allumer SDB'
   trigger:
-    - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_5
+    - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_2
       platform: state
       from: 'off'
       to: 'on'
   condition:
     - condition: template
       value_template: '{{ is_state(''binary_sensor.night_holiday_mode_off'', ''on'') and
-      (is_state(''sun.sun'', ''below_horizon'') or sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_5 <= 10) }}'
+      (is_state(''sun.sun'', ''below_horizon'') or sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_2 <= 10) }}'
   action:
     - device_id: 0e8162190b144387b9c444585d2bde2d
       domain: light
-      entity_id: light.fibaro_system_fgd212_dimmer_2_level_2
+      entity_id: light.lumiere_sdb_level_7
       type: turn_on
 
 - id: '1570377371243'
   alias: '[Presence] Eteindre SDB'
   trigger:
-    - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_5
+    - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_2
       platform: state
       from: 'on'
       to: 'off'
@@ -30,31 +30,31 @@
   action:
     - device_id: 0e8162190b144387b9c444585d2bde2d
       domain: light
-      entity_id: light.fibaro_system_fgd212_dimmer_2_level_2
+      entity_id: light.lumiere_sdb_level_7
       type: turn_off
 
 # Lumiere WC
 - id: '1570377491303'
   alias: '[Presence] Allumer WC'
   trigger:
-    - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_6
+    - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor
       platform: state
       from: 'off'
       to: 'on'
   condition:
     - condition: template
       value_template: '{{ is_state(''binary_sensor.night_holiday_mode_off'', ''on'') and
-      (is_state(''sun.sun'', ''below_horizon'') or sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_6 <= 10) }}'
+      (is_state(''sun.sun'', ''below_horizon'') or sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance <= 10) }}'
   action:
     - device_id: 28143c590fb74335bdf41fbad0cda011
       domain: light
-      entity_id: light.fibaro_system_fgd212_dimmer_2_level_6
+      entity_id: light.lumiere_wc_level_9
       type: turn_on
 
 - id: '1570377636439'
   alias: '[Presence] Eteindre WC'
   trigger:
-    - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_6
+    - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor
       platform: state
       from: 'on'
       to: 'off'
@@ -65,31 +65,31 @@
   action:
     - device_id: 28143c590fb74335bdf41fbad0cda011
       domain: light
-      entity_id: light.fibaro_system_fgd212_dimmer_2_level_6
+      entity_id: light.lumiere_wc_level_9
       type: turn_off
 
 # Lumiere Mezzanine
 - id: '1570378842927'
   alias: '[Presence] Allumer Mezzanine'
   trigger:
-    - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_4
+    - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_3
       platform: state
       from: 'off'
       to: 'on'
   condition:
     - condition: template
       value_template: '{{ is_state(''binary_sensor.night_holiday_mode_off'', ''on'') and
-      (is_state(''sun.sun'', ''below_horizon'') or sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_4 <= 10) }}'
+      (is_state(''sun.sun'', ''below_horizon'') or sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_3 <= 10) }}'
   action:
     - device_id: 58fb1cb61846485e95b002addc372574
       domain: light
-      entity_id: light.fibaro_system_fgd212_dimmer_2_level_4
+      entity_id: light.lumiere_mezzanine_level_8
       type: turn_on
 
 - id: '1570429233439'
   alias: '[Presence] Eteindre Mezzanine'
   trigger:
-    - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_4
+    - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_3
       platform: state
       from: 'on'
       to: 'off'
@@ -99,18 +99,18 @@
   action:
     - device_id: 58fb1cb61846485e95b002addc372574
       domain: light
-      entity_id: light.fibaro_system_fgd212_dimmer_2_level_4
+      entity_id: light.lumiere_mezzanine_level_8
       type: turn_off
 
 # Lumieres Cuisine
 - id: '1570379947387'
   alias: '[Presence] Allumer Cuisine Plan de Travail'
   trigger:
-    - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_3
+    - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_5
       platform: state
       from: 'off'
       to: 'on'
-    - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_2
+    - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_7
       platform: state
       from: 'off'
       to: 'on'
@@ -121,17 +121,17 @@
   condition:
     - condition: template
       value_template: '{{ is_state(''binary_sensor.night_holiday_mode_off'', ''on'') and
-      (is_state(''sun.sun'', ''below_horizon'') or sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_3 <= 10) }}'
+      (is_state(''sun.sun'', ''below_horizon'') or sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_5 <= 10) }}'
   action:
     - device_id: 3e22928a56144c52bc9b3ea209763b92
       domain: switch
-      entity_id: switch.fibaro_system_fgs213_switch_switch_2
+      entity_id: switch.lumiere_cuisine_pdt_switch_2
       type: turn_on
 
 - id: '1570381259379'
   alias: '[Presence] Eteindre Cuisine Plan de Travail'
   trigger:
-    - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_3
+    - entity_id: binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_5
       platform: state
       from: 'on'
       to: 'off'
@@ -142,7 +142,7 @@
   action:
     - device_id: 3e22928a56144c52bc9b3ea209763b92
       domain: switch
-      entity_id: switch.fibaro_system_fgs213_switch_switch_2
+      entity_id: switch.lumiere_cuisine_pdt_switch_2
       type: turn_off
 
 # Détecteur de fumée
@@ -171,7 +171,7 @@
   action:
     service: light.turn_on
     data:
-      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level
+      entity_id: light.radiateur_bureau_level
       brightness: 100
 - id: 'bb19039062934ca5ba4f26ead890b4ee'
   alias: '[Radiateur] Bureau Comfort -1'
@@ -183,7 +183,7 @@
   action:
     service: light.turn_on
     data:
-      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level
+      entity_id: light.radiateur_bureau_level
       brightness: 45
 - id: 'ee3069bd1f16476ea33ff4b1a875575a'
   alias: '[Radiateur] Bureau Comfort -2'
@@ -195,7 +195,7 @@
   action:
     service: light.turn_on
     data:
-      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level
+      entity_id: light.radiateur_bureau_level
       brightness: 35
 - id: '8397b8f4cccd4dca90996ba38e760ba4'
   alias: '[Radiateur] Bureau Eco'
@@ -207,7 +207,7 @@
   action:
     service: light.turn_on
     data:
-      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level
+      entity_id: light.radiateur_bureau_level
       brightness: 25
 - id: '04d972cb89ba4fce96b669c95e4e4e48'
   alias: '[Radiateur] Bureau Hors-gel'
@@ -219,7 +219,7 @@
   action:
     service: light.turn_on
     data:
-      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level
+      entity_id: light.radiateur_bureau_level
       brightness: 15
 - id: '9d3e9fcf237449eaac1bd771e1509b0b'
   alias: '[Radiateur] Bureau Arret'
@@ -231,7 +231,7 @@
   action:
     service: light.turn_off
     data:
-      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level
+      entity_id: light.radiateur_bureau_level
 
 # Radiateur Chambre
 - id: '9341537d031e4720a22aaa216cff45b5'
@@ -244,7 +244,7 @@
   action:
     service: light.turn_on
     data:
-      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_3
+      entity_id: light.radiateur_chambre_level_3
       brightness: 100
 - id: '9d4fa5f997394de4a88b58cf24d9fc92'
   alias: '[Radiateur] Chambre Comfort -1'
@@ -256,7 +256,7 @@
   action:
     service: light.turn_on
     data:
-      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_3
+      entity_id: light.radiateur_chambre_level_3
       brightness: 45
 - id: 'f5b0887ced604b0e9154a1fc215f49c9'
   alias: '[Radiateur] Chambre Comfort -2'
@@ -268,7 +268,7 @@
   action:
     service: light.turn_on
     data:
-      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_3
+      entity_id: light.radiateur_chambre_level_3
       brightness: 35
 - id: '1b413163846949a8bb0ad98f6a76b7c1'
   alias: '[Radiateur] Chambre Eco'
@@ -280,7 +280,7 @@
   action:
     service: light.turn_on
     data:
-      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_3
+      entity_id: light.radiateur_chambre_level_3
       brightness: 25
 - id: 'cc8befca217a406fae30542e909c26f2'
   alias: '[Radiateur] Chambre Hors-gel'
@@ -292,7 +292,7 @@
   action:
     service: light.turn_on
     data:
-      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_3
+      entity_id: light.radiateur_chambre_level_3
       brightness: 15
 - id: 'd85429683161423fb405060cd7d4c5be'
   alias: '[Radiateur] Chambre Arret'
@@ -304,7 +304,7 @@
   action:
     service: light.turn_off
     data:
-      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_3
+      entity_id: light.radiateur_chambre_level_3
 
 # Radiateur SDB
 - id: '8ea0bc937c3e400caa5ed6f5fcde255a'
@@ -317,7 +317,7 @@
   action:
     service: light.turn_on
     data:
-      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_2
+      entity_id: light.radiateur_sdb_level_2
       brightness: 99
 - id: '2afb10ab507442bebd5fffcc01ec6efc'
   alias: '[Radiateur] SDB Comfort -1'
@@ -329,7 +329,7 @@
   action:
     service: light.turn_on
     data:
-      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_2
+      entity_id: light.radiateur_sdb_level_2
       brightness: 50
 - id: '9890c8529a424a6190ee8ff8bb75003e'
   alias: '[Radiateur] SDB Comfort -2'
@@ -341,7 +341,7 @@
   action:
     service: light.turn_on
     data:
-      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_2
+      entity_id: light.radiateur_sdb_level_2
       brightness: 40
 - id: '3c2e9f968e874a3a84eb75171b3a9bf7'
   alias: '[Radiateur] SDB Eco'
@@ -353,7 +353,7 @@
   action:
     service: light.turn_on
     data:
-      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_2
+      entity_id: light.radiateur_sdb_level_2
       brightness: 30
 - id: '8b8dabda6fa94e75b89d6bb0d81a2cba'
   alias: '[Radiateur] SDB Hors-gel'
@@ -365,7 +365,7 @@
   action:
     service: light.turn_on
     data:
-      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_2
+      entity_id: light.radiateur_sdb_level_2
       brightness: 20
 - id: '331695928c4e431eb74d305aae7a7bf2'
   alias: '[Radiateur] SDB Arret'
@@ -377,7 +377,7 @@
   action:
     service: light.turn_off
     data:
-      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_2
+      entity_id: light.radiateur_sdb_level_2
 
 # Radiateur Salon Droit
 - id: '719a937cb6cf4bb3a9d276da644ac867'
@@ -390,7 +390,7 @@
   action:
     service: light.turn_on
     data:
-      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_4
+      entity_id: light.radiateur_salon_d_level_4
       brightness: 99
 - id: '465f61a50ac04c969dfd76f7953e4d1c'
   alias: '[Radiateur] Salon Droit Eco'
@@ -402,7 +402,7 @@
   action:
     service: light.turn_on
     data:
-      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_4
+      entity_id: light.radiateur_salon_d_level_4
       brightness: 30
 - id: 'a765dd8ee0054e77a0b6c58ed60d7f54'
   alias: '[Radiateur] Salon Droit Hors-gel'
@@ -414,7 +414,7 @@
   action:
     service: light.turn_on
     data:
-      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_4
+      entity_id: light.radiateur_salon_d_level_4
       brightness: 20
 - id: '3d7de22df3f847e1bbdae3fbcfdece86'
   alias: '[Radiateur] Salon Droit Arret'
@@ -426,7 +426,7 @@
   action:
     service: light.turn_off
     data:
-      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_4
+      entity_id: light.radiateur_salon_d_level_4
 
 # Radiateur Salon Gauche
 - id: 'b94f597dc59b47028703fd754c2d9493'
@@ -439,7 +439,7 @@
   action:
     service: light.turn_on
     data:
-      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_5
+      entity_id: light.radiateur_salon_g_level_5
       brightness: 99
 - id: '4671557bbbb8462b9bba71a199988042'
   alias: '[Radiateur] Salon Gauche Eco'
@@ -451,7 +451,7 @@
   action:
     service: light.turn_on
     data:
-      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_5
+      entity_id: light.radiateur_salon_g_level_5
       brightness: 30
 - id: '2f888957d56a408c80c49cf58ba17f20'
   alias: '[Radiateur] Salon Gauche Hors-gel'
@@ -463,7 +463,7 @@
   action:
     service: light.turn_on
     data:
-      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_5
+      entity_id: light.radiateur_salon_g_level_5
       brightness: 20
 - id: 'f06d630534d84395a824a0d1a31907a8'
   alias: '[Radiateur] Salon Gauche Arret'
@@ -475,4 +475,4 @@
   action:
     service: light.turn_off
     data:
-      entity_id: light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_5
+      entity_id: light.radiateur_salon_g_level_5

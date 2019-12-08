@@ -19,7 +19,7 @@ frontend:
   themes: !include themes.yaml
   javascript_version: latest
   extra_html_url:
-    - /local/custom-lovelace/floorplan/state-card-floorplan.html
+    - /local/custom-lovelace/state-card-floorplan.html
 
 lovelace:
   mode: yaml
@@ -83,10 +83,10 @@ speedtestdotnet:
 logger:
   default: info
   logs:
-    homeassistant.core: info
-    nest.nest: info
-    asyncio: info
-    homeassistant.components.cloud.iot: info
+    homeassistant.core: debug
+    nest.nest: debug
+    asyncio: debug
+    homeassistant.components.cloud.iot: debug
 
 device_tracker:
   - platform: arpscan_tracker

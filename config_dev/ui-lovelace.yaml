@@ -1,15 +1,15 @@
 title: Dashboard
 
 resources:
-  - url: /local/custom-lovelace/compact-custom-header/compact-custom-header.js?v=0.99.3
+  - url: /local/custom-lovelace/compact-custom-header/compact-custom-header.js?v=0.102.3
     type: module
-  - url: /local/custom-lovelace/card-tools/card-tools.js?v=0.99.3
+  - url: /local/custom-lovelace/card-tools/card-tools.js?v=0.102.3
     type: js
-  - url: /local/custom-lovelace/vertical-stack-in-card/vertical-stack-in-card.js?v=0.99.3
+  - url: /local/custom-lovelace/vertical-stack-in-card/vertical-stack-in-card.js?v=0.102.3
     type: js
-  - url: /local/custom-lovelace/auto-entities/auto-entities.js?v=0.99.3
+  - url: /local/custom-lovelace/auto-entities/auto-entities.js?v=0.102.3
     type: js
-  - url: /local/custom-lovelace/bar-card/bar-card.js?v=0.99.3
+  - url: /local/custom-lovelace/bar-card/bar-card.js?v=0.102.3
     type: js
 
 views:

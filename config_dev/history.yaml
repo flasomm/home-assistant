@@ -13,9 +13,11 @@ include:
     - binary_sensor.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_sensor
     - binary_sensor.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_sensor_4
     - binary_sensor.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_sensor_7
-    - light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level
-    - light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_2
-    - light.qubino_goap_zmnhjd1_flush_dimmer_pilot_wire_level_3
+    - light.radiateur_bureau_level
+    - light.radiateur_chambre_level_3
+    - light.radiateur_d_salon_level_4
+    - light.radiateur_g_salon_level_5
+    - light.radiateur_sdb_level_2
     - sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance
     - sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_2
     - sensor.fibaro_system_fgms001_zw5_motion_sensor_luminance_3
