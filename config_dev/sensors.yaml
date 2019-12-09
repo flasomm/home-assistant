@@ -11,9 +11,9 @@
   sensors:
     fabrice_at_home:
       friendly_name: Statut
-      value_template: '{{ states.device_tracker.marcel.state }}'
+      value_template: '{{ states.device_tracker.marcel_6.state }}'
       icon_template: >
-        {% if is_state('device_tracker.marcel', 'home') %}
+        {% if is_state('device_tracker.marcel_arpscan', 'home') or is_state('device_tracker.marcel_gps', 'home') %}
           mdi:home
         {% else %}
           mdi:exit-run

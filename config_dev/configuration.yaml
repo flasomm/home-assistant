@@ -48,6 +48,7 @@ mobile_app:
 ios:
 person:
 
+
 recorder:
   purge_interval: 1
   purge_keep_days: 3
@@ -87,6 +88,8 @@ logger:
     nest.nest: debug
     asyncio: debug
     homeassistant.components.cloud.iot: debug
+#    custom_components.arpscan_tracker.device_tracker: debug
+#    homeassistant.components.websocket_api: debug
 
 device_tracker:
   - platform: arpscan_tracker

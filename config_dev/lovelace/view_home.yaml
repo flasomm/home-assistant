@@ -12,7 +12,7 @@ cards:
             entities:
               - entity: sensor.fabrice_at_home
                 name: Statut
-              - entity: sensor.marcel_battery_level
+              - entity: sensor.battery_level_2
                 name: Marcel
           - type: vertical-stack
             cards:
