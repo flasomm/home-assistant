@@ -5,6 +5,12 @@ path: medias
 cards:
   - type: vertical-stack
     cards:
+      - type: picture-glance
+        title: Camera RDC
+        entities: []
+        camera_image: camera.camera_entree
+  - type: vertical-stack
+    cards:
       - type: media-control
         entity: media_player.salon
       - type: media-control
@@ -15,4 +21,3 @@ cards:
         entity: media_player.plex_chrome_3
       - type: media-control
         entity: media_player.plex_marcel
-
