@@ -48,11 +48,6 @@ mobile_app:
 ios:
 person:
 
-
-recorder:
-  purge_interval: 1
-  purge_keep_days: 3
-
 # Text to speech
 tts:
   - platform: google_translate
@@ -84,10 +79,10 @@ speedtestdotnet:
 logger:
   default: info
   logs:
-    homeassistant.core: debug
-    nest.nest: debug
-    asyncio: debug
-    homeassistant.components.cloud.iot: debug
+    homeassistant.core: info
+    nest.nest: info
+    asyncio: info
+    homeassistant.components.cloud.iot: info
 #    custom_components.arpscan_tracker.device_tracker: debug
 #    homeassistant.components.websocket_api: debug
 
@@ -111,6 +106,7 @@ sensor: !include sensors.yaml
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
+recorder: !include recorder.yaml
 
 zwave:
   usb_path: /dev/ttyAMA0

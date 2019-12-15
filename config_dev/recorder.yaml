@@ -1,4 +1,5 @@
-use_include_order: true
+purge_interval: 1
+purge_keep_days: 3
 include:
   entities:
     - person.fabrice_sommavilla
@@ -152,3 +153,4 @@ include:
     - sensor.lumiere_wc_power_2
     - sensor.lumiere_wc_power_8
     - switch.lumiere_cuisine_pdt_switch_2
+
