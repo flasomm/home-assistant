@@ -2,9 +2,10 @@ use_include_order: true
 include:
   entities:
     - person.fabrice_sommavilla
-    - device_tracker.marcel_2
-    - device_tracker.marcel_3
-    - device_tracker.marcel_gps
+    - device_tracker.galaxy_s10_2
+    - device_tracker.igor
+    - device_tracker.sm_g973f
+    - device_tracker.sm_g973f_2
     - sensor.distance_2
     - sensor.steps_2
     - sun.sun

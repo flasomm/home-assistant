@@ -11,12 +11,21 @@
   sensors:
     fabrice_at_home:
       friendly_name: Statut
-      value_template: '{{ states.device_tracker.marcel_6.state }}'
+      value_template: '{{ states.device_tracker.sm_g973f_2.state }}'
       icon_template: >
-        {% if is_state('device_tracker.marcel_arpscan', 'home') or is_state('device_tracker.marcel_gps', 'home') %}
+        {% if is_state('device_tracker.galaxy_s10_2', 'home') or is_state('device_tracker.igor', 'home') or is_state('device_tracker.sm_g973f', 'home') or is_state('device_tracker.sm_g973f_2', 'home')%}
           mdi:home
         {% else %}
           mdi:exit-run
+        {% endif %}
+    fabrice_phone_battery:
+      friendly_name: Statut
+      value_template: '{{ state_attr("device_tracker.sm_g973f_2", "battery_level") }}%'
+      icon_template: >
+        {% if is_state_attr("device_tracker.galaxy_s10_2", "battery_level", 100) or is_state_attr("device_tracker.sm_g973f", "battery_level", 100) or is_state_attr("device_tracker.sm_g973f_2", "battery_level", 100) %}
+          mdi:battery
+        {% else %}
+          mdi:battery-60
         {% endif %}
     temperature_salon:
       friendly_name: Capteur Température Salon

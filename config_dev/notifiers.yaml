@@ -27,3 +27,4 @@
     - service: email_notifier
     - service: slack_notifier
     - service: phone_fabrice
+    - service: notify.mobile_app_igor

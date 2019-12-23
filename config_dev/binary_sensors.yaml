@@ -26,31 +26,31 @@
     # Mouvements sensors while away
     alarm_mouvement_bureau:
       value_template: "{{ is_state('binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_6', 'on')
-        and is_state('device_tracker.marcel', 'not_home') }}"
+        and is_state('device_tracker.igor', 'not_home') }}"
       friendly_name: '[Alarme] Mouvement Chambre active while iam away ?'
     alarm_mouvement_cuisine:
       value_template: "{{ is_state('binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_7', 'on')
-        and is_state('device_tracker.marcel', 'not_home') }}"
+        and is_state('device_tracker.igor', 'not_home') }}"
       friendly_name: '[Alarme] Mouvement Cuisine active while iam away ?'
     alarm_mouvement_salon:
       value_template: "{{ is_state('binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_5', 'on')
-        and is_state('device_tracker.marcel', 'not_home') }}"
+        and is_state('device_tracker.igor', 'not_home') }}"
       friendly_name: '[Alarme] Mouvement Salon active while iam away ?'
     alarm_mouvement_mezzanine:
       value_template: "{{ is_state('binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_3', 'on')
-        and is_state('device_tracker.marcel', 'not_home') }}"
+        and is_state('device_tracker.igor', 'not_home') }}"
       friendly_name: '[Alarme] Mouvement Mezzanine active while iam away ?'
     alarm_mouvement_sdb:
       value_template: "{{ is_state('binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_2', 'on')
-        and is_state('device_tracker.marcel', 'not_home') }}"
+        and is_state('device_tracker.igor', 'not_home') }}"
       friendly_name: '[Alarme] Mouvement SDB active while iam away ?'
     alarm_mouvement_wc:
       value_template: "{{ is_state('binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor', 'on')
-        and is_state('device_tracker.marcel', 'not_home') }}"
+        and is_state('device_tracker.igor', 'not_home') }}"
       friendly_name: '[Alarme] Mouvement WC active while iam away ?'
     alarm_mouvement_chambre:
       value_template: "{{ is_state('binary_sensor.fibaro_system_fgms001_zw5_motion_sensor_sensor_4', 'on')
-        and is_state('device_tracker.marcel', 'not_home') }}"
+        and is_state('device_tracker.igor', 'not_home') }}"
       friendly_name: '[Alarme] Mouvement Chambre active while iam away ?'
 
     # Mode nigth and holiday off

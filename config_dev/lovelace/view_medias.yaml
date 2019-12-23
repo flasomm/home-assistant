@@ -19,5 +19,3 @@ cards:
         entity: media_player.plex_chrome_2
       - type: media-control
         entity: media_player.plex_chrome_3
-      - type: media-control
-        entity: media_player.plex_marcel
