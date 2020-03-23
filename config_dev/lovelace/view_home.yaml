@@ -109,6 +109,7 @@ cards:
           - entity: light.lumiere_salon_level_10
           - entity: light.lumiere_sdb_level_7
           - entity: light.lumiere_wc_level_9
+          - entity: group.light_salon_spot_tv
   - type: vertical-stack
     cards:
       - type: weather-forecast

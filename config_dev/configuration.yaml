@@ -45,7 +45,7 @@ discovery:
 updater:
 zeroconf:
 mobile_app:
-ios:
+#ios:
 person:
 
 # Text to speech
@@ -56,6 +56,11 @@ tts:
 media_player:
   - platform: braviatv
     host: 192.168.1.90
+
+# hue
+hue:
+  bridges:
+    - host: 192.168.1.64
 
 # plex
 plex:

@@ -127,6 +127,11 @@
       domain: switch
       entity_id: switch.lumiere_cuisine_pdt_switch_2
       type: turn_on
+    - device_id: 663b558211a940f4aba8eb1820571d28
+      domain: switch
+      entity_id: group.light_salon_spot_tv
+      type: turn_on
+
 
 - id: '1570381259379'
   alias: '[Presence] Eteindre Cuisine Plan de Travail'
@@ -144,6 +149,7 @@
       domain: switch
       entity_id: switch.lumiere_cuisine_pdt_switch_2
       type: turn_off
+
 
 # Détecteur de fumée
 - id: '1570382367987'
