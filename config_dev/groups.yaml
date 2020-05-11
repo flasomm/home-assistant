@@ -21,6 +21,10 @@ light.salon_spot_tv:
     - light.hue_color_spot_1
     - light.hue_color_spot_2
     - light.hue_color_spot_3
+light.chambre_lampe:
+  name: Lampe Chambre
+  entities:
+    - light.hue_color_table_1
 lights.salon:
   name: Lumière Salon
   entities:
