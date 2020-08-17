@@ -114,7 +114,7 @@ cards:
   - type: vertical-stack
     cards:
       - type: weather-forecast
-        entity: weather.maison
+        entity: weather.openweathermap
       - type: horizontal-stack
         cards:
           - type: sensor

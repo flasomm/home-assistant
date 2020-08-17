@@ -11,7 +11,7 @@
   sensors:
     fabrice_at_home:
       friendly_name: Statut
-      value_template: '{{ states.device_tracker.sm_g973f_2.state }}'
+      value_template: '{{ states.device_tracker.sm_g973f.state }}'
       icon_template: >
         {% if is_state('device_tracker.galaxy_s10_2', 'home') or is_state('device_tracker.igor', 'home') or is_state('device_tracker.sm_g973f', 'home') or is_state('device_tracker.sm_g973f_2', 'home')%}
           mdi:home
@@ -20,7 +20,7 @@
         {% endif %}
     fabrice_phone_battery:
       friendly_name: Statut
-      value_template: '{{ state_attr("device_tracker.sm_g973f_2", "battery_level") }}%'
+      value_template: '{{ state_attr("device_tracker.sm_g973f", "battery_level") }}%'
       icon_template: >
         {% if is_state_attr("device_tracker.galaxy_s10_2", "battery_level", 100) or is_state_attr("device_tracker.sm_g973f", "battery_level", 100) or is_state_attr("device_tracker.sm_g973f_2", "battery_level", 100) %}
           mdi:battery

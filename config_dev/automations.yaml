@@ -129,7 +129,15 @@
       type: turn_on
     - device_id: 663b558211a940f4aba8eb1820571d28
       domain: switch
-      entity_id: group.light_salon_spot_tv
+      entity_id: light.hue_color_spot_1
+      type: turn_on
+    - device_id: 88fcbe0d2c104642a543d08dfda5f379
+      domain: switch
+      entity_id: light.hue_color_spot_2
+      type: turn_on
+    - device_id: e4c05975f7f648a5a1144cb247104372
+      domain: switch
+      entity_id: light.hue_color_spot_3
       type: turn_on
 
 
