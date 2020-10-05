@@ -72,16 +72,16 @@ alarm_mouvement_bureau:
   message: Alarme Mouvements détectés Bureau!
   notifiers:
     - all_notifiers
-alarm_mouvement_cuisine:
-  name: "[Alarme] Mouvements détectés Cuisine"
-  entity_id: binary_sensor.alarm_mouvement_cuisine
-  state: 'on'
-  skip_first: true
-  repeat: 5
-  title: "[Alarme] Mouvements détectés Cuisine"
-  message: Alarme Mouvements détectés Cuisine!
-  notifiers:
-    - all_notifiers
+#alarm_mouvement_cuisine:
+#  name: "[Alarme] Mouvements détectés Cuisine"
+#  entity_id: binary_sensor.alarm_mouvement_cuisine
+#  state: 'on'
+#  skip_first: true
+#  repeat: 5
+#  title: "[Alarme] Mouvements détectés Cuisine"
+#  message: Alarme Mouvements détectés Cuisine!
+#  notifiers:
+#    - all_notifiers
 alarm_mouvement_salon:
   name: "[Alarme] Mouvements détectés Salon"
   entity_id: binary_sensor.alarm_mouvement_salon
