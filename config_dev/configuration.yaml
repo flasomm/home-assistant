@@ -71,7 +71,7 @@ plex:
   host: 192.168.1.95
   port: 32400
   token: !secret plex_token
-  ssl: true
+  ssl: false
   verify_ssl: false
   media_player:
     show_all_controls: true
